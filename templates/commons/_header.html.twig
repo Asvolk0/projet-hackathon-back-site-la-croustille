@@ -1,0 +1,142 @@
+<header>
+    <nav>
+        <div class="menuBurger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a class="logoLink" href="{{ path('homepage') }}" tabindex="1">
+            <img class="logo" src="assets/img/logo hackathon 2 redim.png" alt="logo la croustille">
+        </a>
+        
+        <ul class="navBarre navBarreDisplayNone">
+            <li>
+                <a class="activeHomepage" tabindex="1" href="{{ path('homepage') }}">
+                    Accueil
+                </a>
+            </li>
+
+
+
+            <li>
+                <div class="dropdownRecipe" tabindex="1">
+                    <span>Nos recettes</span>
+                    <span class="spanDropdown">></span>
+                </div>
+                <ul class="dropDownDeploy dropDownDeployDisplayNone">
+                    <a href="#">
+                        <li>
+                            Plats froids
+                        </li>
+                    </a>
+                    <a href="#">
+                        <li>
+                            Plats chauds
+                        </li>
+                    </a>
+                    <a href="#">
+                        <li>
+                            Cocktails
+                        </li>
+                    </a>
+                </ul>
+            </li>
+
+
+
+            <li>
+                <a class="activeNotice" href="{{ path('app_login') }}" tabindex="1">
+                    Vos avis
+                </a>
+            </li>
+
+
+
+            {% if app.user %}
+                <li>
+                    <div class="dropdownRecipe" tabindex="1">
+                        <img class="logoSocial" src="assets/img/user.png" alt="image d'un user pour accéder à son compte">
+                        <span class="spanDropdown">></span>
+                    </div>
+                    <ul class="dropDownDeploy dropDownDeployDisplayNone">
+                        <a href="#">
+                            <li>
+                                Mon compte
+                            </li>
+                        </a>
+                        <a href="#">
+                            <li>
+                                Mes favoris
+                            </li>
+                        </a>
+                        <a id="logout" href="#">
+                            <li>
+                                Se déconnecter
+                            </li>
+                        </a>
+                    </ul>
+                </li>
+
+            {% else %}
+            
+                <li class="createAccount activeRegister">
+                    <a href="{{ path('app_register') }}" tabindex="1">
+                        Créer un compte
+                    </a>
+                </li>
+                <li>
+                    <a class="activeLogin" href="{{ path('app_login') }}" tabindex="1">
+                        Se connecter
+                    </a>
+                </li>
+            {% endif %}
+
+            
+
+            
+
+
+
+
+
+
+            <li>
+                <a target="_blank" href="https://www.instagram.com/la_croustille_cuisine/" tabindex="1">
+                    <img class="logoSocial" src="assets/img/instagram.png" alt="Logo instagram, redirige vers notre page instagram">
+                </a>
+            </li>
+            <li>
+                <a target="_blank" href="https://www.facebook.com/La-Croustille-104588778870147/" tabindex="1">
+                    <img class="logoSocial" src="assets/img/logo-de-lapplication-facebook.png" alt="Logo facebook, redirige vers notre page facebook">
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="filter displayNone">
+        <section class="modal modalLogout modalDisplayNone">
+            <h3>
+                Voulez-vous vous déconnecter ?
+            </h3>
+            <div>
+                <a href="{{ path('app_logout') }}">
+                    Se déconnecter
+                </a>
+                <a href="{{ path('homepage') }}">
+                    Annuler
+                </a>
+            </div>
+            
+        </section>
+    
+    </div>
+    
+    <script src="assets/js/linkActive.js"></script>
+
+    {% if app.user %}
+        <script src="assets/js/modal.js"></script>
+    {% endif %}
+    
+    <script src="assets/js/menuBurger.js"></script>
+    <script src="assets/js/dropdownHeader.js"></script>
+</header>

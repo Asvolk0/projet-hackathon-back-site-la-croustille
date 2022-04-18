@@ -1,0 +1,34 @@
+// FOLDERS DESTINATION
+$filePath: "../fonts/";
+$imgPath: "../img/";
+
+// COLOR
+$primaryColor: #41E7B2;
+$primaryColorHover: #41e7b29a;
+$black: #000;
+$gray: #707070;
+$formGray: #EEEBEB;
+$grayLight: #F9F9F9;
+$white: #fff;
+$filter: #e1e1e1cb;
+$red: #d53636;
+$selectColor: #FFC3EE;
+$backgroundScrollBarre: #F5F5F5;
+$blackShadowScrollBarre: #0000004d;
+$colorGradientTopScrollBarre: #ff89dd;
+$colorGradientMidScrollBarre: #fface8;
+$colorGradientBottomScrollBarre: #FFBBEC;
+$backgroundBody: #F8F6F6;
+
+// BTN LINK COLORS
+$btnLink: $white;
+
+// BORDER SHURTCUT COLORT
+$borderSolidPrimary: 2px solid $primaryColor;
+$borderDashedPrimary: 1px dashed $primaryColor;
+$borderSolidDark: 1px solid #80808033;
+
+// MARGIN AUTO
+$mxAuto: 0 auto;
+$myAuto: auto 0;
+$mAuto: auto;

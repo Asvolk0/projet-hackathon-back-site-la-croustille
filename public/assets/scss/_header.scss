@@ -1,0 +1,478 @@
+@font-face {
+    font-family: "PopL";
+    src: url("../fonts/Poppins/Poppins-Light.ttf") format("truetype");
+}
+
+body{
+    background: $backgroundBody;
+}
+
+::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px $blackShadowScrollBarre;
+	background: $backgroundScrollBarre;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar
+{
+	width: 10px;
+	background: $backgroundScrollBarre;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background: -webkit-gradient(linear,
+									   left bottom,
+									   left top,
+									   color-stop(0.44, $colorGradientBottomScrollBarre),
+									   color-stop(0.72, $colorGradientMidScrollBarre),
+									   color-stop(0.86, $colorGradientTopScrollBarre));
+}
+
+::selection{
+    background: $selectColor;
+}
+
+.filter{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110vh;
+    background: $filter;
+    z-index: 2;
+    font-family: "PopL", sans-serif;
+
+    .modal{
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .modalLogout{
+        @include flex(center, center, column);
+        background: $white;
+        padding: 50px;
+        h3{
+            @include flex(center, center);
+            padding: 25px;
+        }
+        div{
+            padding: 25px;
+            a{
+                border-radius: 3px;
+                font-weight: 500;
+                padding: 13px;
+                margin: 0 15px;
+            }
+            a:first-child{
+                background: $red;
+                color: $white;
+            }
+            a:last-child{
+                background: $gray;
+                color: $white;
+            }
+        }
+    }
+
+    .modalDisplayNone{
+        display: none;
+    }
+
+    .modalDisplayBlock{
+        display: block;
+    }
+}
+
+.displayNone{
+    display: none;
+}
+
+.displayBlock{
+    display: block;
+}
+
+
+header{
+    box-shadow: 5px 0 13px #00000029;
+    background: $white;
+    nav{
+        color: $gray;
+        font-family: "PopL", sans-serif;
+        @include flex(space-between, center);
+        font-size: 18px;
+        padding: 8px 120px;
+
+        .menuBurger{
+            display: none;
+            width: 22px;
+            cursor: pointer;
+            span{
+                width: 12px;
+                height: 1px;
+                background: $gray;
+            }
+            span:nth-child(2){
+                width: 22px;
+                margin: 7.3px 0;
+            }
+        }
+
+        .logo{
+            width: 183px;
+        }
+
+        .logoSocial{
+            width: 40px;
+        }
+
+        & > ul{
+            @include flex(space-between, center);
+
+            & > li{
+                padding: 0 36px;
+                position: relative;
+
+                & > a{
+                    transition: 0.2s all;
+                    &:hover{
+                        color: $primaryColor;
+                    }
+                }
+
+                .dropDownDeploy{
+                    position: absolute;
+                    top: calc(100% + 20px);
+                    left: 0px;
+                    z-index: 1;
+                    background: $grayLight;
+                    border-radius: 7px;
+                    border: 1px solid $gray;
+                    transition: 0.2s all;
+                    & > a{
+                        & > li{
+                            width: 230px;
+                            padding: 20px;
+                            transition: 0.2s all;
+                            &:hover{
+                                background: $primaryColor;
+                                color: $white;
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                    & > a:nth-child(2) > li{
+                        border-top: 1px solid $gray;
+                        border-bottom: 1px solid $gray;
+                    }
+                    & > a:first-child:hover > li{
+                        border-top-right-radius: 7px;
+                        border-top-left-radius: 7px;
+                    }
+                    & > a:last-child:hover > li{
+                        border-bottom-right-radius: 7px;
+                        border-bottom-left-radius: 7px;
+                    }
+                }
+
+                .dropDownDeployDisplayNone{
+                    display: none;
+                }
+
+                .dropDownDeployDisplayBlock{
+                    display: block;
+                }
+
+
+
+                .dropdownRecipe{
+                    cursor: pointer;
+                    user-select: none;
+                    @include flex(space-between, center);
+                    position: relative;
+                    span{
+                        transition: 0.2s all;
+                    }
+                    .spanDropdown{
+                        position: absolute;
+                        top: 50%;
+                        left: 100%;
+                        transform: translate(10px, -50%);
+                    }
+                    .spanDropdownArrowDown{
+                        transform: translate(10px, -50%) rotate(90deg);
+                    }
+                    &:hover{
+                        color: $primaryColor;
+                    }
+                }
+            }
+                
+            & > .createAccount{
+                padding: 0 10px;
+                a{
+                    color: $primaryColor;
+                    border-radius: 35px;
+                    border: 1px solid $primaryColor;
+                    padding: 15px 17px;
+                    font-weight: 600;
+                    &:hover{
+                        background-color: $primaryColor;
+                        color: $white;
+                    }
+                }
+            }
+
+            & > li:nth-child(5){
+                a{
+                    color: $primaryColor;
+                    font-weight: 600;
+                    &:hover{
+                        color: $primaryColorHover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1550px) {
+    header{
+        nav{
+            font-size: 14px;
+            padding: 8px 60px;
+
+            .logo{
+                width: 100px;
+            }
+    
+            .logoSocial{
+                width: 25px;
+            }
+
+            & > ul{
+
+
+                & > li{
+                    .dropDownDeploy{
+                    top: calc(100% + 20px);
+                    left: 0px;
+                    & > a{
+                        & > li{
+                            width: 150px;
+                            padding: 15px;
+                            }
+                        }
+                    }
+                }
+
+                
+
+
+                li{
+                    padding: 0 15px;
+                }& > li:first-child{
+                    a{
+                        padding-bottom: 8px;
+                    }
+                }
+                & > .createAccount{
+                    a{
+                        padding: 10px 13px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@media screen and (max-width: 960px){
+
+
+    .filter{
+
+        .modal{
+            padding: 50px 0;
+        }
+    
+        .modalLogout{
+            h3{
+                @include flex(center, center);
+                padding: 0;
+                font-size: 13px;
+                text-align: center;
+                margin-bottom: 25px;
+            }
+            div{
+                padding: 0;
+                margin-top: 25px;
+                a{
+                    border-radius: 3px;
+                    font-weight: 500;
+                    padding: 5px;
+                    margin: 0 15px;
+                }
+                a:first-child{
+                    font-size: 13px;
+                }
+                a:last-child{
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+
+
+
+    header{
+        nav{
+            padding: 8px 50px;
+            font-size: 15px;
+            position: relative;
+
+            & > ul{
+                .modal{
+                    z-index: 100;
+                }
+            }
+
+            .menuBurger{
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                left: 50px;
+                @include flex(center, center, column);
+                span{
+                    transition: 0.2s all;
+                }
+            }
+
+            .spanChange{
+                width: 25px;
+                height: 25px;
+                span:first-child{
+                    width: 100%;
+                    transform: rotate(45deg) translateX(1px) ;
+                }
+                span:nth-child(2){
+                    display: none;
+                }
+                span:last-child{
+                    width: 100%;
+                    transform: rotate(-45deg);
+                }
+            }
+
+            .userAccount{
+                @include flex(center, center);
+                cursor: pointer;
+            }
+    
+            .logoLink{
+                margin: 0 auto;
+                .logo{
+                    width: 100px;
+                    
+                }
+            }
+            
+    
+            .logoSocial{
+                width: 40px;
+            }
+
+            .navBarre{
+                position: absolute;
+                width: 100%;
+                top: 66px;
+                background: $white;
+                @include flex(space-between, flex-start, column);
+                z-index: 1;
+                transition: 0.3s all;
+
+                li{
+                    padding: 30px 35px;
+                    .dropDownDeploy{
+                        border-radius: 0;
+                        margin: 10px;
+                        position: relative;
+                        background: $white;
+                        border: none;
+                        border-top: 1px solid $primaryColor;
+                        border-bottom: 1px solid $primaryColor;
+                        & > a{
+                            & > li{
+                                width: 100%;
+                                padding: 20px;
+                                &:hover{
+                                    background: $primaryColor;
+                                    color: $white;
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                        & > a:nth-child(2) > li{
+                            border: none;
+                        }
+                        & > a:first-child:hover > li{
+                            border-radius: 0;
+                        }
+                        & > a:last-child:hover > li{
+                            border-radius: 0;
+                        }
+                    }
+    
+                    .dropDownDeployDisplayNone{
+                        display: none;
+                    }
+    
+                    .dropDownDeployDisplayBlock{
+                        display: block;
+                    }
+    
+                    .dropdownRecipe{
+                        cursor: pointer;
+                        user-select: none;
+                        @include flex(space-between, center);
+                        position: relative;
+                        span{
+                            transition: 0.2s all;
+                        }
+                        &:hover{
+                            color: $primaryColor;
+                        }
+                        .spanDropdownArrowDown{
+                            transform: translate(0, -50%) rotate(90deg);
+                        }
+                    }
+
+                }
+                & > .createAccount{
+                    padding: 25px 22px;
+                }
+            }
+    
+            .navBarreDisplayNone{
+                left: -100%;
+            }
+
+            .navBarreDisplayBlock{
+                left: 0;
+            }
+        }
+    }
+}

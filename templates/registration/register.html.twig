@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}La Croustille | Créer un compte{% endblock %}
+
+{% block body %}
+<main class="register">
+    <section>
+        
+
+       
+        {{ form_start(registrationForm) }}
+            <div class="input">
+                {{ form_row(registrationForm.name, {
+                    label: 'Prénom :'
+                }) }}
+                {{ form_row(registrationForm.lastname, {
+                    label: 'Nom :'
+                }) }}
+                {{ form_row(registrationForm.email, {
+                    label: 'Email :'
+                }) }}
+                {{ form_row(registrationForm.plainPassword, {
+                    label: 'Mot de passe :'
+                }) }}
+            </div>
+            
+            <div class="divBtn">
+                {% for flash_error in app.flashes('verify_email_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+                {% endfor %}
+                <span>
+                    Appuyez sur la flèche pour envoyer
+                </span>
+                <button type="submit" class="btn">></button>
+            </div>
+                
+            
+
+            
+        {{ form_end(registrationForm) }}
+    </section>
+</main>
+    
+    
+{% endblock %}

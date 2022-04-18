@@ -1,0 +1,198 @@
+@font-face {
+    font-family: "PopL";
+    src: url("../fonts/Poppins/Poppins-Light.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Parisienne";
+    src: url("../fonts/Parisienne/Parisienne-Regular.ttf") format("truetype");
+}
+
+
+footer{
+    background: $white;
+    box-shadow: -5px 0 13px #00000029;
+    nav{
+        @include flex(space-between, center);
+        font-family: 'PopL', sans-serif;
+        padding: 65px 162px;
+
+        .logo{
+            width: 361px
+        }
+
+        & > div{
+            @include flex(space-around, center);
+            width: 80%;
+            & > a{
+                color: $primaryColor;
+                border-radius: 50px;
+                border: 1px solid $primaryColor;
+                padding: 25px 27px;
+                font-size: 22px;
+                font-weight: 600;
+                transition: 0.2s all;
+                &:hover{
+                    background-color: $primaryColor;
+                    color: $white;
+                }
+            }
+
+            & > div{
+                    @include flex(space-between, center);
+                    width: 65%;
+                & > ul{
+                    text-align: center;
+                    h3{
+                        @include flex(center, center);
+                        padding: 30px;
+                        font-size: 62px;
+                        color: $gray;
+                        font-family: 'Parisienne', sans-serif;
+                    }
+                    li{
+                        padding: 10px;
+                        font-size: 21px;
+                        a{
+                            color: $gray;
+                            transition: 0.2s all;
+                            &:hover{
+                                color: $primaryColorHover;
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+    section{
+        @include flex(center, center);
+        padding: 10px;
+
+        a{
+            transition: 0.2s all;
+            &:hover{
+                color: $primaryColor;
+            }
+        }
+
+        span{
+            margin: 0 5px;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1550px) {
+    footer{
+        nav{
+            padding: 35px 100px;
+    
+            .logo{
+                width: 190px
+            }
+    
+            & > div{
+                & > a{
+                    padding: 15px 17px;
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+    
+                & > div{
+                    @include flex(space-around, center);
+                    width: 65%;
+                    & > ul{
+                        h3{
+                            padding: 25px;
+                            font-size: 35px;
+                        }
+                        li{
+                            padding: 10px;
+                            font-size: 18px;
+                        }
+                    }
+                }
+                
+            }
+        }
+        section{
+            padding: 10px;
+    
+            span{
+                margin: 0 5px;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 960px){
+    footer{
+        nav{
+            @include flex(space-between, center);
+            font-family: 'PopL', sans-serif;
+            padding: 20px 20px;
+    
+            .logo{
+                width: 120px
+            }
+    
+            & > div{
+                @include flex(space-around, center, column-reverse);
+                width: 100%;
+                & > a{
+                    padding: 10px 12px;
+                    font-size: 16px;
+                }
+    
+                & > div{
+                    padding: 25px 0;
+                    width: 100%;
+                    & > ul{
+                        h3{
+                            padding: 20px;
+                            font-size: 25px;
+                            color: $gray;
+                            font-family: 'Parisienne', sans-serif;
+                        }
+                        li{
+                            padding: 10px;
+                            font-size: 16px;
+                            a{
+                                color: $gray;
+                                transition: 0.2s all;
+                                &:hover{
+                                    color: $primaryColorHover;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+        section{
+            @include flex(center, center);
+            padding: 10px;
+            font-size: 10px;
+    
+            span{
+                margin: 0 5px;
+            }
+        }
+    }
+}

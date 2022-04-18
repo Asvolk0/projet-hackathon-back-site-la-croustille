@@ -1,0 +1,96 @@
+<footer>
+    <nav>
+        <a href="{{ path('homepage') }}">
+            <img class="logo" src="assets/img/logo hackathon 2 redim.png" alt="logo la croustille">
+        </a>
+        <div>
+            <a href="{{ path('app_message') }}">
+                Nous Contacter
+            </a>
+
+            <div>
+        <ul class="leftLinkFooter">
+                    <h3>
+                        Infos
+                    </h3>
+                    <li>
+                        <a href="{{ path('homepage') }}">
+                            Accueil
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Vos avis
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% if app.user %}
+                                    #
+                                {% else %}
+                                    {{ path('app_login') }}
+                                {% endif %}
+                                ">
+                            Compte
+                        </a>
+                    </li>
+                </ul>
+                <ul class="rightLinkFooter">
+                    <h3>
+                        Nos recettes
+                    </h3>
+                    <li>
+                        <a href="#">
+                            Plats Chauds
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Plats Froids
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Cocktails
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        
+        </div>
+        
+    </nav>
+
+
+    <section>
+        <span>
+            @ 2022 La Croustille
+        </span>
+        <span>
+            -
+        </span>
+        <a href="#">
+            Mentions légales
+        </a>
+        <span>
+            -
+        </span>
+        <a href="#">
+            Politique de confidentialité
+        </a>
+        <span>
+            -
+        </span>
+        <a href="#">
+            CGU
+        </a>
+        <span>
+            -
+        </span>
+        <a href="#">
+            Charte
+        </a>
+    </section>
+    
+
+
+</footer>
