@@ -1,0 +1,62 @@
+.message{
+    @include flex(center, center);
+    section{
+        padding: 50px;
+        width: 100%;
+        @include flex(center, center);
+        form{
+            font-family: 'PopL', sans-serif;
+            .input{
+                @include flex(center, center, column);
+                background: $white;
+                padding: 60px 123px 60px 123px;
+                & > div{
+                    @include flex(center, center, column);
+                    padding: 25px;
+                    label{
+                        align-self: flex-start;
+                        font-size: 30px;
+                        color: $gray;
+                    }
+                    input{
+                        border: none;
+                        border-bottom: 1px solid $gray;
+                        width: 400px;
+                        height: 40px;
+                        font-size: 25px;
+                        padding: 5px;
+                    }
+                }
+            }
+            
+
+            
+            
+            .divBtn{
+                @include flex(space-between, center);
+                background: $formGray;
+
+                span{
+                    width: 75%;
+                    font-size: 30px;
+                    padding: 15px;
+                    text-align: center;
+                    @include flex(center, center);
+                }
+
+                .btn{
+                    @include flex(center, center);
+                    align-self: flex-end;
+                    width: 180px;
+                    height: 180px;
+                    background: $primaryColor;
+                    padding: 10px;
+                    border: none;
+                    font-size: 180px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+

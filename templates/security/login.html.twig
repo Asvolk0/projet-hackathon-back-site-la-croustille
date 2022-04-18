@@ -4,15 +4,19 @@
 
 {% block body %}
 <main class="login">
-    <section>
-        <form method="post">
+    {% if app.user %}
+        <div class="decoAccount">
+            <span>
+                Vous êtes connecter en temps que {{ app.user.username }}
+            </span>
             
+            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        </div>
+    {% endif %}
+    <section>
 
-            {% if app.user %}
-                <div class="mb-3">
-                    Vous êtes connecter en temps que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
-                </div>
-            {% endif %}
+    
+        <form method="post">
             <div class="input">
                 <div>
                     <label for="inputEmail">Email</label>
@@ -46,9 +50,15 @@
                     >
                 </button>
             </div>
-
-            
         </form>
+
+        <div class="account">
+            <span>
+                Vous n'avez pas encore de compte ?
+            </span>
+            <a href="{{ path('app_register') }}">Créer un compte</a>
+        </div>
+
 
     </section>
 </main>

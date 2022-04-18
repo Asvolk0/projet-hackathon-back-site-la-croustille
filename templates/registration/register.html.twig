@@ -4,6 +4,17 @@
 
 {% block body %}
 <main class="register">
+    {% if app.user %}
+        <div class="decoAccount">
+            <span>
+                Vous êtes connecter en temps que {{ app.user.username }} 
+            </span>
+            
+            <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        </div>
+    {% endif %}
+
+
     <section>
         
 
@@ -38,6 +49,12 @@
 
             
         {{ form_end(registrationForm) }}
+        <div class="account">
+            <span>
+                Vous avez déja un compte ?
+            </span>
+            <a href="{{ path('app_login') }}">Se connecter</a>
+        </div>
     </section>
 </main>
     

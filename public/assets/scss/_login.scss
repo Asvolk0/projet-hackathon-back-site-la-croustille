@@ -1,11 +1,10 @@
 .login{
-    @include flex(center, center);
+    font-family: 'PopL', sans-serif;
     section{
         padding: 50px;
         width: 100%;
-        @include flex(center, center);
+        @include flex(center, center, column);
         form{
-            font-family: 'PopL', sans-serif;
             .input{
                 @include flex(center, center, column);
                 background: $white;
@@ -61,6 +60,31 @@
                 }
             }
         }
+
+
+        .account{
+            @include flex(center, center, column);
+            padding: 10px;
+            span{
+                font-size: 20px;
+            }
+            a{
+                font-size: 20px;
+                color: $primaryColor;
+            }
+        }
+
+    }
+    .decoAccount{
+        @include flex(center, center, column);
+        padding: 10px;
+        span{
+            font-size: 20px;
+        }
+        a{
+            font-size: 20px;
+            color: $primaryColor;
+        }
     }
 }
 
@@ -72,7 +96,7 @@
 
 
 @media screen and (max-width: 960px){
-    .register{
+    .login{
         section{
             form{
                 .input{
@@ -122,6 +146,20 @@
                         cursor: pointer;
                     }
                 }
+            }
+
+        }
+        .decoAccount{
+            @include flex(center, center, column);
+            padding: 10px;
+            text-align: center;
+            span{
+                font-size: 16px;
+                padding: 5px;
+            }
+            a{
+                font-size: 16px;
+                color: $primaryColor;
             }
         }
     }
