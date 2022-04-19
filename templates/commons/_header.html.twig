@@ -126,17 +126,15 @@
                     Annuler
                 </a>
             </div>
-            
         </section>
-    
     </div>
-    
-    <script src="{{ asset('assets/js/linkActive.js') }}"></script>
 
-    {% if app.user %}
-        <script src="{{ asset('assets/js/modal.js') }}"></script>
-    {% endif %}
     
+    
+    <script src="{{ asset('assets/js/linkActive.js') }}"></script> 
+    {% if app.user %}
+        <script defer src="{{ asset('assets/js/modal.js') }}"></script>
+    {% endif %}   
     <script src="{{ asset('assets/js/menuBurger.js') }}"></script>
     <script src="{{ asset('assets/js/dropdownHeader.js') }}"></script>
 </header>

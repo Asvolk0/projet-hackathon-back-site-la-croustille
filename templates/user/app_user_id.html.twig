@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Mon Compte | Messages Utilisateurs{% endblock %}
+
+{% block body %}
+
+<main class="administrateur">
+    <h1>
+        Utilisateur
+    </h1>
+    {% for role in user.roles %}
+        <section class="administrateurId">
+            <h2>
+                {{ user.name }}
+                {{ user.lastname }}
+            </h2>
+            <span>
+                    {% if role == "ROLE_SUPERADMIN" %}
+                            Compte super admin
+                    {% elseif role == "ROLE_ADMIN" %}
+                            Compte admin
+                    {% else %}
+                            Compte utilisateur
+                    {% endif %}
+            </span>
+            <div>
+                <span>
+                    Envoyer un mail à l'adresse suivante :
+                </span>
+                <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+            </div>
+
+            <div class="userIdBtn">
+                {% if is_granted("ROLE_SUPERADMIN") and role != "ROLE_SUPERADMIN" %}
+                    <a href="{{ path('app_user_suppr', {'id':user.id}) }}">Supprimer l'utilisateur</a>
+                    <a href="{{ path('app_adminChang', {'id':user.id}) }}">
+                    {% if role == "ROLE_ADMIN" %}
+                        Mettre utilisateur
+                    {% elseif role == "ROLE_USER" %}
+                        Mettre admin
+                    {% endif %}
+                    </a>
+                {% endif %}
+                <a href="{{ path('app_user') }}">Retour</a>
+            </div>
+        </section>
+    {% endfor %}
+
+</main>
+
+{% endblock %}

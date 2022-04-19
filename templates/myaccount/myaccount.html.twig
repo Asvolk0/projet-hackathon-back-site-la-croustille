@@ -8,7 +8,7 @@
         Mon compte
     </h1>
     <section>
-        <a href="#">
+        <a href="{{ path('app_user_account', {'id':app.user.id}) }}">
             <img class="logo" src="{{ asset('assets/img/profil.png') }}" alt="logo d'un utilisateur pour modifier les informations du compte">
             <span>
                 Informations
@@ -35,12 +35,33 @@
             </a>
 
 
-            <a href="#">
+            <a href="{{ path('app_user') }}">
                 <img class="logo" src="{{ asset('assets/img/administrateur.png') }}" alt="logo message pour accéder aux mutilisateurs et aux admins du site">
                 <span>
-                    Role et Admin
+                    Rôle et Admin
                 </span>
             </a>
+            
+            
+        {% endif %}
+
+        {% if is_granted('ROLE_SUPERADMIN') %}
+            <a href="#">
+                <img class="logo" src="{{ asset('assets/img/chef.png') }}" alt="logo pour ajouter un plat">
+                <span>
+                    Ajouter des recettes
+                </span>
+            </a>
+
+
+            <a href="#">
+                <img class="logo" src="{{ asset('assets/img/couvert.png') }}" alt="logo couvert pour accéder aux modification des recettes">
+                <span>
+                    Modification de recettes
+                </span>
+            </a>
+            
+            
         {% endif %}
         
     </section>

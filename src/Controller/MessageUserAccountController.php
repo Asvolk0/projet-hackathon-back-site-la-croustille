@@ -3,14 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Use;
+use App\Entity\User;
 use App\Repository\MessageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/mon_compte')]
+#[Route('/messages_utilisateurs')]
 class MessageUserAccountController extends AbstractController
 {
-    #[Route('/messages_utilisateurs', name: 'app_message_user_account')]
+    #[Route('/', name: 'app_message_user_account')]
     public function app_message_user_account(MessageRepository $messageRepository)
     {
         $messages = $messageRepository->findAll();
@@ -20,7 +21,7 @@ class MessageUserAccountController extends AbstractController
         ]);
     }
 
-    #[Route('/messages_utilisateurs/{id}', name:'app_message_user_account_id', methods:['GET', 'POST'])]
+    #[Route('/{id}', name:'app_message_user_account_id', methods:['GET', 'POST'])]
     public function app_message_user_account_id(MessageRepository $messageRepository, $id){
         $message = $messageRepository->findOneBy([
             'id'=>$id
@@ -31,7 +32,7 @@ class MessageUserAccountController extends AbstractController
         ]);
     }
 
-    #[Route('/messages_utilisateurs/suppr/{id}', name:'app_message_user_account_suppr', methods:['GET', 'POST'])]
+    #[Route('/suppr/{id}', name:'app_message_user_account_suppr', methods:['GET', 'POST'])]
     public function app_message_user_account_suppr(MessageRepository $messageRepository, $id){
         $message = $messageRepository->findOneBy([
             'id'=>$id

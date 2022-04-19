@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <main class="administrateur">
+    <h1>
+        Les utilisateurs
+    </h1>
+    <section>
+
+        {% if users|length == 0 %}
+            Aucun utilisateur
+        {% endif %}
+
+        {% for user in users %}
+            <a href="{{ path('app_user_id', {'id':user.id}) }}">
+                <h2>
+                    {{ user.name }}
+                    {{ user.lastname }}
+                </h2>
+                <span>
+                    {% for role in user.roles %}
+                        {% if role == "ROLE_SUPERADMIN" %}
+                                Compte super admin
+                        {% elseif role == "ROLE_ADMIN" %}
+                                Compte admin
+                        {% else %}
+                                Compte utilisateur
+                        {% endif %}
+                    {% endfor %}
+                </span>
+                
+            </a>
+        {% endfor %}
+    </section>
+
+</main>
+{% endblock %}

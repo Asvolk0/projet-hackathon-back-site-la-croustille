@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer un compte{% endblock %}
+
+{% block body %}
+<main class="myAccountUpdate">
+    <section>
+        {{ form_start(formUserAccount) }}
+            <div class="input">
+                {{ form_row(formUserAccount.name, {
+                    label: 'Prénom :'
+                }) }}
+                {{ form_row(formUserAccount.lastname, {
+                    label: 'Nom :'
+                }) }}
+                {{ form_row(formUserAccount.plainPassword, {
+                    label: 'Mot de passe :'
+                }) }}
+            </div>
+            
+            <div class="divBtn">
+                <span>
+                    Appuyez sur la flèche pour
+                    modifier votre compte
+                </span>
+                {{ form_row(formUserAccount.Submit) }}
+            </div>
+                
+            
+
+            
+        {{ form_end(formUserAccount) }}
+        <div class="userIdBtn">
+            <a href="{{ path('app_my_account') }}">Retour</a>
+        </div>
+
+
+
+    </section>
+</main>
+    
+    
+{% endblock %}
