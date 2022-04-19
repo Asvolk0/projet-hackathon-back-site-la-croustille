@@ -25,7 +25,7 @@
                     </li>
                     <li>
                         <a href="{% if app.user %}
-                                    #
+                                    {{ path('app_my_account') }}
                                 {% else %}
                                     {{ path('app_login') }}
                                 {% endif %}
