@@ -10,6 +10,10 @@
     </h1>
     <section>
 
+        {% if messages|length == 0 %}
+            Aucun Message
+        {% endif %}
+
         {% for message in messages %}
             <a href="{{ path('app_message_user_account_id', {'id':message.id}) }}">
                 <span>

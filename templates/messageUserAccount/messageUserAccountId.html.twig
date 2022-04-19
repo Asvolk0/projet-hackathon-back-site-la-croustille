@@ -16,15 +16,14 @@
             {{ message.name }}
             {{ message.lastname }}
         </h2>
-        {% if message.user.id %}
+        
+        {% if message.user %}
             <div>
                 <span>
                     Envoyé depuis le compte de :
                 </span>
                 <a href="mailto:{{ message.user.email }}">{{ message.user.email }}</a>
             </div>
-            
-        
         {% endif %}
         <div>
             <span>
@@ -34,7 +33,7 @@
         </div>
 
         <div class="messageIdBtn">
-            <a href="#">Supprimer le message</a>
+            <a href="{{ path('app_message_user_account_suppr', {'id':message.id}) }}">Supprimer le message</a>
             <a href="{{ path('app_message_user_account') }}">Retour</a>
         </div>
 

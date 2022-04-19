@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Use;
 use App\Repository\MessageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,5 +29,16 @@ class MessageUserAccountController extends AbstractController
         return $this->render('messageUserAccount/messageUserAccountId.html.twig', [
             'message'=>$message
         ]);
+    }
+
+    #[Route('/messages_utilisateurs/suppr/{id}', name:'app_message_user_account_suppr', methods:['GET', 'POST'])]
+    public function app_message_user_account_suppr(MessageRepository $messageRepository, $id){
+        $message = $messageRepository->findOneBy([
+            'id'=>$id
+        ]);
+
+        $messageRepository->remove($message);
+
+        return $this->redirectToRoute('app_message_user_account');
     }
 }
