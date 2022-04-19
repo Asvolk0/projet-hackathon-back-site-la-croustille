@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RecipeRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: RecipeRepository::class)]
@@ -25,6 +27,14 @@ class Recipe
     #[ORM\ManyToOne(targetEntity: type::class, inversedBy: 'recipes')]
     #[ORM\JoinColumn(nullable: false)]
     private $type;
+
+    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: step::class)]
+    private $steps;
+
+    public function __construct()
+    {
+        $this->steps = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +85,36 @@ class Recipe
     public function setType(?type $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, step>
+     */
+    public function getSteps(): Collection
+    {
+        return $this->steps;
+    }
+
+    public function addStep(step $step): self
+    {
+        if (!$this->steps->contains($step)) {
+            $this->steps[] = $step;
+            $step->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeStep(step $step): self
+    {
+        if ($this->steps->removeElement($step)) {
+            // set the owning side to null (unless already changed)
+            if ($step->getRecipe() === $this) {
+                $step->setRecipe(null);
+            }
+        }
 
         return $this;
     }

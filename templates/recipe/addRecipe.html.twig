@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Un Article{% endblock %}
+
+{% block body %}
+<main class="addArticle">
+    <section>
+        
+        {{ form_start(formRecipe) }}
+            <div class="input">
+                {{ form_row(formRecipe.title, {
+                    label: 'Titre :'
+                }) }}
+                {{ form_row(formRecipe.img, {
+                    label: 'Image :'
+                }) }}
+                {{ form_row(formRecipe.type, {
+                    label: 'Type :'
+                }) }}
+            </div>
+            
+            <div class="divBtn">
+                <span>
+                    Appuyez sur la flèche pour envoyer
+                </span>
+                {{ form_row(formRecipe.submit) }}
+            </div>
+            
+        {{ form_end(formRecipe) }}
+    </section>
+</main>
+{% endblock %}
