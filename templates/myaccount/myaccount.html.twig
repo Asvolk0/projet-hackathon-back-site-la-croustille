@@ -3,5 +3,48 @@
 {% block title %}Espace Mon Compte{% endblock %}
 
 {% block body %}
+<main class="spaceMyAccount">
+    <h1>
+        Mon compte
+    </h1>
+    <section>
+        <a href="#">
+            <img class="logo" src="assets/img/profil.png" alt="logo d'un utilisateur pour modifier les informations du compte">
+            <span>
+                Informations
+            </span>
+        </a>
+        <a href="#">
+            <img class="logo" src="assets/img/favoris.png" alt="logo favoris pour accéder à la page des menus mis en favoris">
+            <span>
+                Favoris
+            </span>
+        </a>
+        <a href="#">
+            <img class="logo" src="assets/img/notation.png" alt="logo favoris pour accéder à la page des menus mis en favoris">
+            <span>
+                Mes avis
+            </span>
+        </a>
+        {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPERADMIN') %}
+            <a href="#">
+                <img class="logo" src="assets/img/message.png" alt="logo message pour accéder aux messages des utilisateurs">
+                <span>
+                    Messages utilisateurs
+                </span>
+            </a>
+
+
+            <a href="#">
+                <img class="logo" src="assets/img/administrateur.png" alt="logo message pour accéder aux mutilisateurs et aux admins du site">
+                <span>
+                    Role et Admin
+                </span>
+            </a>
+        {% endif %}
+        
+    </section>
+
+</main>
 
 {% endblock %}
