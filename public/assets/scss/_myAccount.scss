@@ -2,7 +2,7 @@
     font-family: 'PopL', sans-serif;
     h1{
         text-align: center;
-        font-size: 50px;
+        font-size: 45px;
         font-weight: 600;
         margin: 80px 0;
         letter-spacing: 7px;
@@ -11,15 +11,15 @@
             display: inline-block;
             background: $secondaryColor;
             border-radius: 25px;
-            width: 100px;
-            height: 8px;
+            width: 80px;
+            height: 6px;
             transform: translateY(-100%);
         }
     }
     section{
         margin: 80px auto;
-        width: 80%;
-        @include flex(flex-start, center, row , wrap);
+        width: 84%;
+        @include flex(center, flex-start, row, wrap);
         & > a{
             @include flex(space-around, center, column);
             padding: 20px;
@@ -40,6 +40,24 @@
         }
         .logo{
             width: 45px;
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .spaceMyAccount{
+        h1{
+            font-size: 20px;
+            letter-spacing: 5px;
+            &::before , &::after{
+                display: none;
+            }
+        }
+        section{
+            width: 100%;
+            & > a{
+                margin: 20px 20px;
+            }
         }
     }
 }

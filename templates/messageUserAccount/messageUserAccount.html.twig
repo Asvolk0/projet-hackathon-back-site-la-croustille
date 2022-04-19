@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Mon Compte | Messages Utilisateurs{% endblock %}
+
+{% block body %}
+
+<main class="messagesUsers">
+    <h1>
+        Messages des utilisateurs
+    </h1>
+    <section>
+
+        {% for message in messages %}
+            <a href="{{ path('app_message_user_account_id', {'id':message.id}) }}">
+                <span>
+                    De
+                </span>
+                <h2>
+                    {{ message.name }}
+                    {{ message.lastname }}
+                </h2>
+                
+                <p>
+                    {{ message.message }} 
+                </p>
+            </a>
+        {% endfor %}
+    </section>
+
+</main>
+
+{% endblock %}

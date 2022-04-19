@@ -6,7 +6,7 @@
             <span></span>
         </div>
         <a class="logoLink" href="{{ path('homepage') }}" tabindex="1">
-            <img class="logo" src="assets/img/logo hackathon 2 redim.png" alt="logo la croustille">
+            <img class="logo" src="{{ asset('assets/img/logo hackathon 2 redim.png') }}" alt="logo la croustille">
         </a>
         
         <ul class="navBarre navBarreDisplayNone">
@@ -55,7 +55,7 @@
             {% if app.user %}
                 <li>
                     <div class="dropdownRecipe" tabindex="1">
-                        <img class="logoSocial" src="assets/img/user.png" alt="image d'un user pour accéder à son compte">
+                        <img class="logoSocial" src="{{ asset('assets/img/user.png') }}" alt="image d'un user pour accéder à son compte">
                         <span class="spanDropdown">></span>
                     </div>
                     <ul class="dropDownDeploy dropDownDeployDisplayNone">
@@ -102,12 +102,12 @@
 
             <li>
                 <a target="_blank" href="https://www.instagram.com/la_croustille_cuisine/" tabindex="1">
-                    <img class="logoSocial" src="assets/img/instagram.png" alt="Logo instagram, redirige vers notre page instagram">
+                    <img class="logoSocial" src="{{ asset('assets/img/instagram.png') }}" alt="Logo instagram, redirige vers notre page instagram">
                 </a>
             </li>
             <li>
                 <a target="_blank" href="https://www.facebook.com/La-Croustille-104588778870147/" tabindex="1">
-                    <img class="logoSocial" src="assets/img/logo-de-lapplication-facebook.png" alt="Logo facebook, redirige vers notre page facebook">
+                    <img class="logoSocial" src="{{ asset('assets/img/logo-de-lapplication-facebook.png') }}" alt="Logo facebook, redirige vers notre page facebook">
                 </a>
             </li>
         </ul>
@@ -131,12 +131,12 @@
     
     </div>
     
-    <script src="assets/js/linkActive.js"></script>
+    <script src="{{ asset('assets/js/linkActive.js') }}"></script>
 
     {% if app.user %}
-        <script src="assets/js/modal.js"></script>
+        <script src="{{ asset('assets/js/modal.js') }}"></script>
     {% endif %}
     
-    <script src="assets/js/menuBurger.js"></script>
-    <script src="assets/js/dropdownHeader.js"></script>
+    <script src="{{ asset('assets/js/menuBurger.js') }}"></script>
+    <script src="{{ asset('assets/js/dropdownHeader.js') }}"></script>
 </header>

@@ -5,4 +5,4 @@ menuBurger.addEventListener("click", () => {
     navBarre.classList.toggle('navBarreDisplayBlock');
     navBarre.classList.toggle('navBarreDisplayNone');
     menuBurger.classList.toggle('spanChange');
-})
+});

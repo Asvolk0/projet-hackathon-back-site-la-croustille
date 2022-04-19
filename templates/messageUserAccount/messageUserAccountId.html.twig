@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Mon Compte | Messages Utilisateurs{% endblock %}
+
+{% block body %}
+
+<main class="messagesUsers">
+    <h1>
+        Message
+    </h1>
+    <section class="messagesUsersId">
+        <span>
+            De
+        </span>
+        <h2>
+            {{ message.name }}
+            {{ message.lastname }}
+        </h2>
+        {% if message.user.id %}
+            <div>
+                <span>
+                    Envoyé depuis le compte de :
+                </span>
+                <a href="mailto:{{ message.user.email }}">{{ message.user.email }}</a>
+            </div>
+            
+        
+        {% endif %}
+        <div>
+            <span>
+                Envoyer un mail à l'adresse suivante :
+            </span>
+            <a href="mailto:{{ message.email }}">{{ message.email }}</a>
+        </div>
+
+        <div class="messageIdBtn">
+            <a href="#">Supprimer le message</a>
+            <a href="{{ path('app_message_user_account') }}">Retour</a>
+        </div>
+
+        
+
+
+
+        <span>
+            Message :
+        
+        </span>
+        <p>
+            {{ message.message }} 
+        </p>
+    </section>
+
+</main>
+
+{% endblock %}

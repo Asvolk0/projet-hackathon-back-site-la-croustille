@@ -9,26 +9,26 @@
     </h1>
     <section>
         <a href="#">
-            <img class="logo" src="assets/img/profil.png" alt="logo d'un utilisateur pour modifier les informations du compte">
+            <img class="logo" src="{{ asset('assets/img/profil.png') }}" alt="logo d'un utilisateur pour modifier les informations du compte">
             <span>
                 Informations
             </span>
         </a>
         <a href="#">
-            <img class="logo" src="assets/img/favoris.png" alt="logo favoris pour accéder à la page des menus mis en favoris">
+            <img class="logo" src="{{ asset('assets/img/favoris.png') }}" alt="logo favoris pour accéder à la page des menus mis en favoris">
             <span>
                 Favoris
             </span>
         </a>
         <a href="#">
-            <img class="logo" src="assets/img/notation.png" alt="logo favoris pour accéder à la page des menus mis en favoris">
+            <img class="logo" src="{{ asset('assets/img/notation.png') }}" alt="logo favoris pour accéder à la page des menus mis en favoris">
             <span>
                 Mes avis
             </span>
         </a>
         {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SUPERADMIN') %}
-            <a href="#">
-                <img class="logo" src="assets/img/message.png" alt="logo message pour accéder aux messages des utilisateurs">
+            <a href="{{ path('app_message_user_account') }}">
+                <img class="logo" src="{{ asset('assets/img/message.png') }}" alt="logo message pour accéder aux messages des utilisateurs">
                 <span>
                     Messages utilisateurs
                 </span>
@@ -36,7 +36,7 @@
 
 
             <a href="#">
-                <img class="logo" src="assets/img/administrateur.png" alt="logo message pour accéder aux mutilisateurs et aux admins du site">
+                <img class="logo" src="{{ asset('assets/img/administrateur.png') }}" alt="logo message pour accéder aux mutilisateurs et aux admins du site">
                 <span>
                     Role et Admin
                 </span>
