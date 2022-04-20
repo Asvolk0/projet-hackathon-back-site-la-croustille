@@ -17,6 +17,7 @@ class Step
     private $steps;
 
     #[ORM\ManyToOne(targetEntity: Recipe::class, inversedBy: 'steps')]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private $recipe;
 
     public function getId(): ?int

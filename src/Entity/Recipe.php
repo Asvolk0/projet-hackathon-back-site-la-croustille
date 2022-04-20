@@ -25,7 +25,7 @@ class Recipe
     private $active;
 
     #[ORM\ManyToOne(targetEntity: type::class, inversedBy: 'recipes')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private $type;
 
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: step::class)]
