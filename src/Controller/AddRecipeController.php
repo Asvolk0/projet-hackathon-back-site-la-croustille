@@ -27,10 +27,10 @@ class AddRecipeController extends AbstractController
             $imgName = md5(uniqid()) . '.' . $img->guessExtension();
             $img->move($this->getParameter('uploadDirectory'), $imgName);
             $recipe->setActive(true);
-
+            
             $request->query->get('nomDuChampForm'); // récup par get
             $request->request->get('nomDuChampForm'); // récup par post
-
+            
 
             $recipeRepository->add($recipe);
 

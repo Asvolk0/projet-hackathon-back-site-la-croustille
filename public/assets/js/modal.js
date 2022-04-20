@@ -1,7 +1,7 @@
 const modal = document.querySelectorAll('.modal');
 const filter = document.querySelectorAll('.filter');
 const logout = document.getElementById('logout');
-const body = document.querySelector('body')
+const body = document.querySelector('body');
 
 for (let i = 0; i < modal.length; i++) {
     logout.addEventListener('click', () => {

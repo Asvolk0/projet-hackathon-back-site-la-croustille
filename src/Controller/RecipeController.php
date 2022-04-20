@@ -22,7 +22,7 @@ class RecipeController extends AbstractController
 
         return $this->render('recipe/recipes.html.twig', [
             'type'=>$type,
-            'recipe'=>$recipes
+            'recipes'=>$recipes
         ]);
     }
 }
