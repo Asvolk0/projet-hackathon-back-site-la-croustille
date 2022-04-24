@@ -1,32 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Ajouter Un Article{% endblock %}
+{% block title %}Ajouter Une Recette{% endblock %}
 
 {% block body %}
 <main class="addArticle">
     <section>
         
-        {{ form_start(formRecipe) }}
+        <form action="{{ path('app_add_recipe') }}" method="post">
+
             <div class="input">
-                {{ form_row(formRecipe.title, {
-                    label: 'Titre :'
-                }) }}
-                {{ form_row(formRecipe.img, {
-                    label: 'Image :'
-                }) }}
-                {{ form_row(formRecipe.type, {
-                    label: 'Type :'
-                }) }}
+                <div>
+                    <label name="title">Titre :</label>
+                    <input type="text" name="title" required>
+                </div>
+                <div>
+                    <label name="img">Image :</label>
+                    <input type="file" name="img" required>
+                </div>
+                <div>
+                    <label name="type">Type :</label>
+                    <select name="type" class="type" required>
+                        <option value="Plats froids">Plats froids</option>
+                        <option value="Plats chauds">Plats chauds</option>
+                        <option value="Cocktails">Cocktails</option>
+                    </select>
+                </div>
+                <div>
+                    <label name="stepFirst">Étape 1 :</label>
+                    <textarea name="stepFirst" class="textarea" required></textarea>
+                </div>
+                <div>
+                    <label name="stepSecond">Étape 2 :</label>
+                    <textarea name="stepSecond" class="textarea"></textarea>
+                </div>
+                <div>
+                    <label name="stepThree">Étape 3 :</label>
+                    <textarea name="stepThree" class="textarea"></textarea>
+                </div>
+                <div>
+                    <label name="stepFour">Étape 4 :</label>
+                    <textarea name="stepFour" class="textarea"></textarea>
+                </div>
             </div>
             
             <div class="divBtn">
                 <span>
                     Appuyez sur la flèche pour envoyer
                 </span>
-                {{ form_row(formRecipe.submit) }}
+                <input type="submit" class="btn" value=">">
             </div>
             
-        {{ form_end(formRecipe) }}
+        </form>
     </section>
 </main>
 {% endblock %}

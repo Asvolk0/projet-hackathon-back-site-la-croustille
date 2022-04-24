@@ -40,9 +40,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
+    #[ORM\ManyToMany(targetEntity: recipe::class, inversedBy: 'users')]
+    private $liked;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
+        $this->liked = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -195,6 +199,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, recipe>
+     */
+    public function getLiked(): Collection
+    {
+        return $this->liked;
+    }
+
+    public function addLiked(recipe $liked): self
+    {
+        if (!$this->liked->contains($liked)) {
+            $this->liked[] = $liked;
+        }
+
+        return $this;
+    }
+
+    public function removeLiked(recipe $liked): self
+    {
+        $this->liked->removeElement($liked);
 
         return $this;
     }

@@ -33,6 +33,19 @@
                         font-size: 25px;
                         padding: 5px;
                     }
+                    .textarea{
+                        width: 400px; 
+                        max-width: 400px; 
+                        min-width: 400px; 
+                        height: 40px; 
+                        min-height: 40px; 
+                        max-height: 3000px; 
+                        font-size: 25px; 
+                        padding: 3px;
+                        border: none;
+                        border-bottom: 1px solid $gray;
+                        margin-top: 6px;
+                    }
                 }
             }
             
@@ -57,7 +70,6 @@
                     width: 180px;
                     height: 180px;
                     background: $primaryColor;
-                    padding: 10px;
                     border: none;
                     font-size: 180px;
                     cursor: pointer;
@@ -91,7 +103,7 @@
                             border: none;
                             border-bottom: 1px solid $gray;
                             width: 200px;
-                            height: 20px;
+                            height: 40px;
                             font-size: 15px;
                             padding: 5px;
                         }
@@ -99,9 +111,18 @@
                             border: none;
                             border-bottom: 1px solid $gray;
                             width: 200px;
-                            height: 20px;
+                            height: 40px;
                             font-size: 15px;
                             padding: 5px;
+                        }
+                        .textarea{
+                            width: 200px; 
+                            max-width: 200px; 
+                            min-width: 200px; 
+                            height: 40px; 
+                            min-height: 40px; 
+                            max-height: 3000px; 
+                            font-size: 15px;
                         }
                     }
                 }
@@ -127,7 +148,6 @@
                         width: 100px;
                         height: 100px;
                         background: $primaryColor;
-                        padding: 10px;
                         border: none;
                         font-size: 100px;
                         cursor: pointer;

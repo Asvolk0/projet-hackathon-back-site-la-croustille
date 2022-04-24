@@ -1,0 +1,22 @@
+.showRecipe{
+    font-family: 'PopL', sans-serif;
+    section{
+        background: $white;
+        margin: 100px auto 30px auto;
+        max-width: 1366px;
+        border-radius: 25px;
+    }
+}
+
+@media screen and (max-width: 1370px) {
+    .recipes{
+        section{
+            width: 100%;
+            margin: 0;
+            border-radius: 0px;
+            h1{
+                padding: 100px 0 0;
+            }
+        }
+    }
+}

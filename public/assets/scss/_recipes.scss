@@ -2,7 +2,7 @@
     font-family: 'PopL', sans-serif;
     section{
         background: $white;
-        margin: 100px auto;
+        margin: 100px auto 30px auto;
         max-width: 1366px;
         border-radius: 25px;
         h1{
@@ -110,6 +110,36 @@
                 height: 4px;
                 border-radius: 20px;
             }
+        }
+    }
+    .pagination{
+        @include flex(center, center);
+        margin-bottom: 70px;
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 200px;
+            height: 4px;
+            background: $secondaryColor;
+            transform: translateX(-50%)
+        }
+        span{
+            @include flex(center, center);
+            font-size: 30px;
+            margin: 15px;
+            transition: 0.2s all;
+            color: $gray;
+            &:hover{
+                transform: scale(1.20);
+            }
+        }
+        .current{
+            font-size: 35px;
+            color: $secondaryColor;
+            transform: none !important;
         }
     }
 }

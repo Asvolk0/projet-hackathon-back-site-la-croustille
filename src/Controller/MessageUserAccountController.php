@@ -8,7 +8,7 @@ use App\Repository\MessageRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/messages_utilisateurs')]
+#[Route('/messagesUtilisateurs')]
 class MessageUserAccountController extends AbstractController
 {
     #[Route('/', name: 'app_message_user_account')]

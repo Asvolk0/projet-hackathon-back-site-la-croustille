@@ -10,10 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('mon_compte')]
+#[Route('/mon_compte')]
 class UserAccountController extends AbstractController
 {
-    #[Route('/modifier_mes_informations/{id}', name: 'app_user_account', methods:['GET', 'POST'])]
+    #[Route('/modifierMesInformations/{id}', name: 'app_user_account', methods:['GET', 'POST'])]
     public function app_user_account($id, UserRepository $userRepository, Request $request, UserPasswordHasherInterface $userPasswordHasher)
     {
         $user = $userRepository->findOneBy([

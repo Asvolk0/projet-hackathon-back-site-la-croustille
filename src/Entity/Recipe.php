@@ -31,9 +31,17 @@ class Recipe
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: step::class)]
     private $steps;
 
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'liked')]
+    private $users;
+
+    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Ingredients::class)]
+    private $ingredients;
+
     public function __construct()
     {
         $this->steps = new ArrayCollection();
+        $this->users = new ArrayCollection();
+        $this->ingredients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -113,6 +121,63 @@ class Recipe
             // set the owning side to null (unless already changed)
             if ($step->getRecipe() === $this) {
                 $step->setRecipe(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addLiked($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeLiked($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Ingredients>
+     */
+    public function getIngredients(): Collection
+    {
+        return $this->ingredients;
+    }
+
+    public function addIngredient(Ingredients $ingredient): self
+    {
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients[] = $ingredient;
+            $ingredient->setRecipe($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Ingredients $ingredient): self
+    {
+        if ($this->ingredients->removeElement($ingredient)) {
+            // set the owning side to null (unless already changed)
+            if ($ingredient->getRecipe() === $this) {
+                $ingredient->setRecipe(null);
             }
         }
 

@@ -41,9 +41,10 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
          - { path: ^/supprUser, roles: [ ROLE_SUPERADMIN ] }
-         - { path: ^/messages_utilisateurs, roles: [ ROLE_ADMIN, ROLE_SUPERADMIN ] }
+         - { path: ^/messagesUtilisateurs, roles: [ ROLE_ADMIN, ROLE_SUPERADMIN ] }
          - { path: ^/administrateur, roles: [ ROLE_ADMIN, ROLE_SUPERADMIN ] }
-         - { path: ^/mon_compte, roles: [ ROLE_USER, ROLE_ADMIN, ROLE_SUPERADMIN ] }
+         - { path: ^/monCompte, roles: [ ROLE_USER, ROLE_ADMIN, ROLE_SUPERADMIN ] }
+         - { path: ^/like, roles: [ ROLE_USER, ROLE_ADMIN, ROLE_SUPERADMIN ] }
 
 when@test:
     security:
