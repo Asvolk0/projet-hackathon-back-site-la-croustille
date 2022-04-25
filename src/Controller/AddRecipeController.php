@@ -22,7 +22,6 @@ class AddRecipeController extends AbstractController
         $entityManager = $doctrine->getManager();
 
         $recipe = new Recipe();
-        $type = new Type();
 
         $types = $typeRepository->findBy([], ['name' => 'DESC']);
 
