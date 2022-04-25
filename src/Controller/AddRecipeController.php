@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class AddRecipeController extends AbstractController
 {
     #[Route('/ajouterUneRecette', name: 'app_add_recipe')]
-    public function app_add_recipe(Request $request, RecipeRepository $recipeRepository, StepRepository $stepRepository, TypeRepository $typeRepository, ManagerRegistry $doctrine)
+    public function app_add_recipe(Request $request, TypeRepository $typeRepository, ManagerRegistry $doctrine)
     {
         $entityManager = $doctrine->getManager();
 
@@ -34,19 +34,14 @@ class AddRecipeController extends AbstractController
             $stepForm['stepFour'] = $request->request->get('stepFour');
 
             $recipes['title'] = $request->request->get('title');
-            $img = $request->request->get('img');
+            $img = $request->files->get('img');
             $imgName = md5(uniqid()) . '.' .$img->guessExtension();
             $img->move($this->getParameter('uploadDirectory'), $imgName);
 
-            $typeTake = $request->request->get('type');
-
             $recipe->setTitle($recipes['title'])
                    ->setImg($imgName)
-                   ->setActive(true);
-
-            $type->setName($typeTake);
-
-            $type->addRecipe($recipe);
+                   ->setActive(true)
+                    ->setType($typeRepository->findOneBy(['id' => $request->request->get('type')]));
 
             foreach ($stepForm as $step){
                 $newStep = new Step();
@@ -56,12 +51,10 @@ class AddRecipeController extends AbstractController
                 $recipe->addStep($newStep);
                 $entityManager->persist($newStep);
             }
-
-
-            $entityManager->persist($type);
             $entityManager->persist($recipe);
             $entityManager->flush();
 
+            return $this->redirectToRoute('homepage');
         }
 
         return $this->render('recipe/addRecipe.html.twig', [
