@@ -20,9 +20,9 @@
                 <div>
                     <label name="type">Type :</label>
                     <select name="type" class="type" required>
-                        <option value="Plats froids">Plats froids</option>
-                        <option value="Plats chauds">Plats chauds</option>
-                        <option value="Cocktails">Cocktails</option>
+                        {% for type in types  %}
+                            <option value="{{ type.name }}">{{ type.name }}</option>
+                        {% endfor %}
                     </select>
                 </div>
                 <div>

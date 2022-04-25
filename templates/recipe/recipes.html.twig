@@ -17,7 +17,9 @@
                         {{ recipe.title }}
                     </h2>
                     <div>
-                        <img src="{{ asset('uploadDirectory/' ~ recipe.img) }}" alt="img du plat {{ recipe.title }}">
+                        <div class="img">
+                            <img src="{{ asset('uploadDirectory/' ~ recipe.img) }}" alt="img du plat {{ recipe.title }}">
+                        </div>
                         <div class="like">
                             <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                                 width="100.000000pt" height="60.000000pt" viewBox="0 0 1280.000000 1000.000000"

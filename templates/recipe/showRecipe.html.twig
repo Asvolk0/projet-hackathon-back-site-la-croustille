@@ -6,7 +6,9 @@
     
     <main class="showRecipe">                 
         <section>
-            <img src="" alt="image de fond du plat {{ recipe.title }}">
+            <div class="img">
+                <img src="{{ asset('uploadDirectory/' ~ recipe.img) }}" alt="image de fond du plat {{ recipe.title }}">
+            </div>
             <div>
                 <div class="like">
                     <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +40,7 @@
                         <img src="{{ asset('assets/img/favoris.png') }}" alt="img d'un logo favoris pour mettre ce plat en favoris">      
                     </a>
                     <span>
-                        J'aime
+                        Favoris
                     </span>
                 </div>
                 <h1>
