@@ -96,6 +96,29 @@
                 margin-left: 25px;
             }
         }
+        .buttonIngredientsSteps{
+            @include flex(space-around, center);
+            margin: 0 auto;
+            width: 900px;
+            height: 110px;
+            border-radius: 70px;
+            background: $backgroundBody;
+            h2{
+                font-size: 34px;
+                padding: 15px 102px;
+                border-radius: 50px;
+                color: $primaryColor;
+                font-weight: bold;
+                cursor: pointer;
+                transition: 0.2s all;
+                &:hover{
+                    background: $white;
+                }
+            }
+            .active{
+                background: $white;
+            }
+        }
     }
 }
 
