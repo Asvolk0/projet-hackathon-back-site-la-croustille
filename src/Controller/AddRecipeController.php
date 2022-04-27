@@ -28,7 +28,7 @@ class AddRecipeController extends AbstractController
 
         $types = $typeRepository->findBy([], ['name' => 'DESC']);
 
-        $unityMesure = $unityRepository->findBy([], ['mesure' => 'DESC']);
+        $unityMesure = $unityRepository->findBy([], ['id' => 'DESC']);
 
         if (!empty($request->request->all()))
         {
@@ -64,17 +64,18 @@ class AddRecipeController extends AbstractController
             }
 
             $newIngredient = new Ingredients();
+
             
             $newIngredient->setIngredient($IngredientForm['IngredientOne'])
-                          ->setQuantity($IngredientForm['quantity'])
-                          ->setUnity($unityRepository->findOneBy([
-                                'id'=>$request->request->get('unity')
-                          ]));
+            ->setQuantity($IngredientForm['quantity'])
+            ->setUnity($unityRepository->findOneBy([
+                'id'=>$request->request->get('unity')
+            ]));
             
             $recipe->addIngredient($newIngredient);
             
-            $entityManager->persist($newIngredient);
             $entityManager->persist($recipe);
+            $entityManager->persist($newIngredient);
             $entityManager->flush();
 
             return $this->redirectToRoute('addIngredient');
@@ -97,23 +98,24 @@ class AddRecipeController extends AbstractController
             ['id' => 'DESC'
         ]);
 
-        $unityMesure = $unityRepository->findBy([], ['mesure' => 'DESC']);
+        $unityMesure = $unityRepository->findBy([], ['id' => 'DESC']);
 
+        
         if (!empty($request->request->all())){
             $newIngredient = new Ingredients();
-
+            
             $IngredientForm['Ingredient'] = $request->request->get('Ingredient');
             $IngredientForm['quantity'] = $request->request->get('quantity');
-
+            
             $newIngredient->setIngredient($IngredientForm['Ingredient'])
             ->setQuantity($IngredientForm['quantity'])
-                          ->setUnity($unityRepository->findOneBy([
-                            'id'=>$request->request->get('unity')
-                          ]))
-                          ->setRecipe($recipeRepository->findOneBy([
-                            'id'=>$request->request->get('recipe')
-                          ]));
-
+            ->setUnity($unityRepository->findOneBy([
+                'id'=>$request->request->get('unity')
+                ]))
+                ->setRecipe($recipeRepository->findOneBy([
+                    'id'=>$request->request->get('recipe')
+                ]));
+                
             $entityManager->persist($newIngredient);
             $entityManager->flush();
 

@@ -64,8 +64,7 @@
                 </div>
                 <div>
                     <label name="unity">Unité :</label>
-                    <select name="unity" class="unity">
-                        <option value="">Rentrez une mesure</option>
+                    <select name="unity" class="unity" required>
                         {% for unity in unityMesure  %}
                             <option value="{{ unity.id }}">{{ unity.mesure }}</option>
                         {% endfor %}

@@ -65,22 +65,36 @@
                 </span>
             </div>
             <div class="buttonIngredientsSteps">
-                <h2 class="IngredientsSteps active">
+                <h2 class="IngredientsSteps buttonIngredients active">
                     Ingrédients
                 </h2>
-                <h2 class="IngredientsSteps">
+                <h2 class="IngredientsSteps buttonSteps">
                     Préparation
                 </h2>
             </div>
-            <div id="ingredients">
-
+            <div id="ingredients" class="">
+                {% for ingredient in ingredients %}                        
+                    {% if ingredient.ingredient|length != 0 %}
+                        <div>
+                            <h3>
+                                {{ ingredient.ingredient }}
+                            </h3>
+                            <span>
+                                {{ ingredient.quantity }} 
+                                {# <pre>
+                                    {{ dump(ingredient.unity) }}
+                                </pre> #}
+                            </span>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
-            <div id="steps">
+            <div id="steps" class="displayNone">
                 {% for step in steps %}                        
                     {% if step.steps|length != 0 %}
                     <div>
                         <h3>
-                            Etape {{ loop.index }}
+                            Etape {{ loop.index }} :
                         </h3>
                         <p>
                             {{ step.steps }}
@@ -90,5 +104,6 @@
                 {% endfor %}
             </div>
         </section>
+        <script src="{{ asset('assets/js/ingredientSteps.js') }}"></script>
     </main>
 {% endblock %}

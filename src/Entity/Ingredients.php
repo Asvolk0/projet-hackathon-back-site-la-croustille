@@ -21,6 +21,7 @@ class Ingredients
     private $recipe;
 
     #[ORM\ManyToOne(targetEntity: Unity::class, inversedBy: 'ingredients')]
+    #[ORM\JoinColumn(nullable: false)]
     private $unity;
 
     #[ORM\Column(type: 'integer')]
