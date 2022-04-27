@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Une Recette{% endblock %}
+
+{% block body %}
+<main class="addArticle">
+    <section class="questionIngredientAdd">
+        
+        <span>
+            Voulez vous ajouter un autre ingredient ?
+        </span>
+        <div class="btn">
+            <a class="yes" href="{{ path('addIngredient') }}">Oui</a>
+            <a class="no" href="{{ path('homepage') }}">Non</a>
+        </div>
+        
+    </section>
+</main>
+{% endblock %}

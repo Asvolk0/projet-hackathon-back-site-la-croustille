@@ -17,10 +17,14 @@ class Ingredients
     private $ingredient;
 
     #[ORM\ManyToOne(targetEntity: recipe::class, inversedBy: 'ingredients')]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private $recipe;
 
     #[ORM\ManyToOne(targetEntity: Unity::class, inversedBy: 'ingredients')]
     private $unity;
+
+    #[ORM\Column(type: 'integer')]
+    private $quantity;
 
     public function getId(): ?int
     {
@@ -59,6 +63,18 @@ class Ingredients
     public function setUnity(?Unity $unity): self
     {
         $this->unity = $unity;
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity): self
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }

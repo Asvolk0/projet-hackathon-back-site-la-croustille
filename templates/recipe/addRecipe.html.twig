@@ -26,6 +26,14 @@
                     </select>
                 </div>
                 <div>
+                    <label name="nbPersonne">Nombre de personne :</label>
+                    <input type="number" name="nbPersonne" required>
+                </div>
+                <div>
+                    <label name="preparationTime">Temps de préparation :</label>
+                    <input type="number" name="preparationTime" required>
+                </div>
+                <div>
                     <label name="stepFirst">Étape 1 :</label>
                     <textarea name="stepFirst" class="textarea" required></textarea>
                 </div>
@@ -40,6 +48,28 @@
                 <div>
                     <label name="stepFour">Étape 4 :</label>
                     <textarea name="stepFour" class="textarea"></textarea>
+                </div>
+
+
+
+
+
+                <div>
+                    <label name="IngredientOne">Ingrédient 1 :</label>
+                    <input type="text" name="IngredientOne" required>
+                </div>
+                <div>
+                    <label name="quantity">Quantité :</label>
+                    <input type="number" name="quantity" required>
+                </div>
+                <div>
+                    <label name="unity">Unité :</label>
+                    <select name="unity" class="unity">
+                        <option value="">Rentrez une mesure</option>
+                        {% for unity in unityMesure  %}
+                            <option value="{{ unity.id }}">{{ unity.mesure }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
             

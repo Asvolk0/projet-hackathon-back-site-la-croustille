@@ -35,13 +35,24 @@ class Recipe
     private $users;
 
     #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Ingredients::class)]
+    #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private $ingredients;
+
+    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'recipes')]
+    private $fav;
+
+    #[ORM\Column(type: 'integer')]
+    private $preparationTime;
+
+    #[ORM\Column(type: 'integer')]
+    private $nbPersonne;
 
     public function __construct()
     {
         $this->steps = new ArrayCollection();
         $this->users = new ArrayCollection();
         $this->ingredients = new ArrayCollection();
+        $this->fav = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -180,6 +191,54 @@ class Recipe
                 $ingredient->setRecipe(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getFav(): Collection
+    {
+        return $this->fav;
+    }
+
+    public function addFav(User $fav): self
+    {
+        if (!$this->fav->contains($fav)) {
+            $this->fav[] = $fav;
+        }
+
+        return $this;
+    }
+
+    public function removeFav(User $fav): self
+    {
+        $this->fav->removeElement($fav);
+
+        return $this;
+    }
+
+    public function getPreparationTime(): ?int
+    {
+        return $this->preparationTime;
+    }
+
+    public function setPreparationTime(int $preparationTime): self
+    {
+        $this->preparationTime = $preparationTime;
+
+        return $this;
+    }
+
+    public function getNbPersonne(): ?int
+    {
+        return $this->nbPersonne;
+    }
+
+    public function setNbPersonne(int $nbPersonne): self
+    {
+        $this->nbPersonne = $nbPersonne;
 
         return $this;
     }

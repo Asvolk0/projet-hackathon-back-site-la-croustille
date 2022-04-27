@@ -1,5 +1,25 @@
 .addArticle{
     font-family: 'PopL', sans-serif;
+    .questionIngredientAdd{
+        height: 46vh;
+        span{
+            margin-bottom: 25px;
+
+        }
+        a{
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: $white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .yes{
+            background: $red;
+        }
+        .no{
+            background: $gray;
+        }
+    }
     section{
         padding: 50px;
         width: 100%;
@@ -17,21 +37,17 @@
                         font-size: 30px;
                         color: $gray;
                     }
-                    input{
+                    input , .type , .unity{
                         border: none;
                         border-bottom: 1px solid $gray;
                         width: 400px;
                         height: 40px;
+                        margin-top: 7px;
                         font-size: 25px;
                         padding: 5px;
                     }
-                    .type{
-                        border: none;
-                        border-bottom: 1px solid $gray;
-                        width: 400px;
-                        height: 40px;
-                        font-size: 25px;
-                        padding: 5px;
+                    .unity{
+                        margin-bottom: 50px;
                     }
                     .textarea{
                         width: 400px; 
@@ -99,15 +115,7 @@
                             font-size: 15px;
                             color: $gray;
                         }
-                        input{
-                            border: none;
-                            border-bottom: 1px solid $gray;
-                            width: 200px;
-                            height: 40px;
-                            font-size: 15px;
-                            padding: 5px;
-                        }
-                        .type{
+                        input , .type , .unity{
                             border: none;
                             border-bottom: 1px solid $gray;
                             width: 200px;

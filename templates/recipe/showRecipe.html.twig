@@ -36,7 +36,7 @@
                     </span>
                 </div>
                 <div class="fav">
-                    <a href="#">
+                    <a href="{{ path('fav', {'id':recipe.id}) }}">
                         <img src="{{ asset('assets/img/favoris.png') }}" alt="img d'un logo favoris pour mettre ce plat en favoris">      
                     </a>
                     <span>
@@ -51,11 +51,17 @@
                 <div class="preparationTime">
                     <img src="{{ asset('assets/img/lhorloge.png') }}" alt="logo d'une horloge">
                     <span>
-                        Temps de préparation : x min
+                        Temps de préparation : {{ recipe.preparationTime }} min
                     </span>
                 </div>
                 <span>
-                    Pour <span class="numberPersonne">1</span> <span class="personne">personne</span>  <span class="numberLess">-</span> <span class="numberMore">+</span>
+                    Pour {{ recipe.nbPersonne }} 
+                    {% if recipe.nbPersonne > 1 %}
+                        personnes
+                    {% else %}
+                        personne
+                    {% endif %}
+                    <span class="numberLess">-</span> <span class="numberMore">+</span>
                 </span>
             </div>
             <div class="buttonIngredientsSteps">
@@ -72,12 +78,14 @@
             <div id="steps">
                 {% for step in steps %}                        
                     {% if step.steps|length != 0 %}
+                    <div>
                         <h3>
                             Etape {{ loop.index }}
                         </h3>
                         <p>
                             {{ step.steps }}
                         </p>
+                    </div>
                     {% endif %}
                 {% endfor %}
             </div>

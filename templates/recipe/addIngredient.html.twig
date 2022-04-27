@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter Une Recette{% endblock %}
+
+{% block body %}
+<main class="addArticle">
+    <section>
+        
+        <form action="{{ path('addIngredient') }}" method="post" enctype="multipart/form-data">
+
+            <div class="input">
+                <div>
+                    <label name="recipe">Choisir la recette</label>
+                    <select name="recipe" class="unity" required>
+                        {% for recipe in recipes  %}
+                            <option value="{{ recipe.id }}">{{ recipe.title }} dans {{ recipe.type.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div>
+                    <label name="Ingredient">Ingrédient :</label>
+                    <input type="text" name="Ingredient" required>
+                </div>
+                <div>
+                    <label name="quantity">Quantité :</label>
+                    <input type="number" name="quantity" required>
+                </div>
+                <div>
+                    <label name="unity">Unité :</label>
+                    <select name="unity" class="unity">
+                        <option value="">Rentrez une mesure</option>
+                        {% for unity in unityMesure  %}
+                            <option value="{{ unity.id }}">{{ unity.mesure }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            
+            <div class="divBtn">
+                <span>
+                    Appuyez sur la flèche pour envoyer
+                </span>
+                <input type="submit" class="btn" value=">">
+            </div>
+            
+        </form>
+    </section>
+</main>
+{% endblock %}

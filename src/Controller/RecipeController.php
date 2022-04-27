@@ -33,21 +33,6 @@ class RecipeController extends AbstractController
             $data, $request->query->getInt('page', 1), 6
         );
 
-        // $recipe = $recipeRepository->findOneBy([
-        //     'id'=>$id
-        // ]);
-
-        // foreach ($recipe as $recipes){
-        //     $recipe->getId();
-        // }
-
-
-        // if ($recipe->getUsers()->contains($this->getUser()) == true) {
-        //     $like = true;
-        //  }else{
-        //     $like = false;
-        //  }
-
         return $this->render('recipe/recipes.html.twig', [
             'type'=>$type,
             'recipes'=>$recipes
@@ -76,23 +61,5 @@ class RecipeController extends AbstractController
             'recipe'=>$recipe,
             'steps'=>$steps
         ]);
-    }
-
-    #[Route('/love/{id}', name: 'love', methods:["GET", 'POST'])]
-    public function love(RecipeRepository $recipeRepository, $id)
-    {
-        $recipe = $recipeRepository->findOneBy([
-            'id'=>$id
-        ]);
-
-        if ($recipe->getUsers()->contains($this->getUser()) == true) {
-           $recipe->removeUser($this->getUser()); 
-        }else{
-            $recipe->addUser($this->getUser());
-        }
-
-        $recipeRepository->add($recipe);
-
-        return $this->redirectToRoute('homepage');
     }
 }

@@ -6,7 +6,7 @@ use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/mon_compte')]
+#[Route('/monCompte')]
 class UserSupprController extends AbstractController
 {
     #[Route('/supprUser/{id}', name:'app_user_suppr', methods:['GET', 'POST'])]

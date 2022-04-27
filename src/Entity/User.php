@@ -43,10 +43,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: recipe::class, inversedBy: 'users')]
     private $liked;
 
+    #[ORM\ManyToMany(targetEntity: Recipe::class, mappedBy: 'fav')]
+    private $recipes;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
         $this->liked = new ArrayCollection();
+        $this->recipes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -223,6 +227,33 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeLiked(recipe $liked): self
     {
         $this->liked->removeElement($liked);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Recipe>
+     */
+    public function getRecipes(): Collection
+    {
+        return $this->recipes;
+    }
+
+    public function addRecipe(Recipe $recipe): self
+    {
+        if (!$this->recipes->contains($recipe)) {
+            $this->recipes[] = $recipe;
+            $recipe->addFav($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecipe(Recipe $recipe): self
+    {
+        if ($this->recipes->removeElement($recipe)) {
+            $recipe->removeFav($this);
+        }
 
         return $this;
     }

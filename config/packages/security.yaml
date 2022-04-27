@@ -44,7 +44,8 @@ security:
          - { path: ^/messagesUtilisateurs, roles: [ ROLE_ADMIN, ROLE_SUPERADMIN ] }
          - { path: ^/administrateur, roles: [ ROLE_ADMIN, ROLE_SUPERADMIN ] }
          - { path: ^/monCompte, roles: [ ROLE_USER, ROLE_ADMIN, ROLE_SUPERADMIN ] }
-         - { path: ^/like, roles: [ ROLE_USER, ROLE_ADMIN, ROLE_SUPERADMIN ] }
+         - { path: ^/love, roles: [ ROLE_USER, ROLE_ADMIN, ROLE_SUPERADMIN ] }
+         - { path: ^/favoris, roles: [ ROLE_USER, ROLE_ADMIN, ROLE_SUPERADMIN ] }
 
 when@test:
     security:

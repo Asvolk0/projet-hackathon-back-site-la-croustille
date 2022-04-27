@@ -14,7 +14,7 @@
                 Informations
             </span>
         </a>
-        <a href="#">
+        <a href="{{ path('favPage', {'id':app.user.id}) }}">
             <img class="logo" src="{{ asset('assets/img/favoris.png') }}" alt="logo favoris pour accéder à la page des menus mis en favoris">
             <span>
                 Favoris
@@ -51,16 +51,7 @@
                 <span>
                     Ajouter des recettes
                 </span>
-            </a>
-
-
-            <a href="#">
-                <img class="logo" src="{{ asset('assets/img/couvert.png') }}" alt="logo couvert pour accéder aux modification des recettes">
-                <span>
-                    Modification de recettes
-                </span>
-            </a>
-            
+            </a>            
             
         {% endif %}
         

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/mon_compte')]
+#[Route('/monCompte')]
 class UserAccountController extends AbstractController
 {
     #[Route('/modifierMesInformations/{id}', name: 'app_user_account', methods:['GET', 'POST'])]
