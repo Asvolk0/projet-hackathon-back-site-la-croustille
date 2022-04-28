@@ -53,7 +53,8 @@ class RecipeRepository extends ServiceEntityRepository
 {
     $qb = $this->createQueryBuilder('recipe');
     $qb
-        ->select('recipe');
+        ->select('recipe')
+        ->leftJoin('recipe.fav', 'fav');
         $query = $qb->getQuery();
         
         $fav = $query->getArrayResult();

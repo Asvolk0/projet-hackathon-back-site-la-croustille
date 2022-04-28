@@ -7,6 +7,7 @@ use App\Entity\Recipe;
 use App\Entity\Step;
 use App\Entity\Type;
 use App\Entity\Unity;
+use App\Repository\IngredientsRepository;
 use App\Repository\RecipeRepository;
 use App\Repository\StepRepository;
 use App\Repository\TypeRepository;
@@ -89,9 +90,7 @@ class AddRecipeController extends AbstractController
     }
 
     #[Route('/ajouterUnIngredient', name:'addIngredient', methods:['GET', 'POST'])]
-    public function addIngredient(RecipeRepository $recipeRepository, Request $request, ManagerRegistry $doctrine, UnityRepository $unityRepository){
-
-        $entityManager = $doctrine->getManager();
+    public function addIngredient(RecipeRepository $recipeRepository, Request $request, UnityRepository $unityRepository, IngredientsRepository $ingredientsRepository){
         
         $recipes = $recipeRepository->findBy([
 
@@ -107,19 +106,20 @@ class AddRecipeController extends AbstractController
             
             $IngredientForm['Ingredient'] = $request->request->get('Ingredient');
             $IngredientForm['quantity'] = $request->request->get('quantity');
+            $IngredientForm['unity'] = $request->request->get('unity');
+
             
             $newIngredient->setIngredient($IngredientForm['Ingredient'])
             ->setQuantity($IngredientForm['quantity'])
             ->setUnity($unityRepository->findOneBy([
-                'id'=>$request->request->get('unity')
+                'id'=>$IngredientForm['unity']
                 ]))
                 ->setRecipe($recipeRepository->findOneBy([
                     'id'=>$request->request->get('recipe')
                 ]));
                 
-            $entityManager->persist($newIngredient);
-            $entityManager->flush();
-
+                $ingredientsRepository->add($newIngredient);
+                
             return $this->redirectToRoute('redirectIngredient');
         }
 

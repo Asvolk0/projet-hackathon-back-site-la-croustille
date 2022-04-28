@@ -75,15 +75,15 @@
             <div id="ingredients" class="">
                 {% for ingredient in ingredients %}                        
                     {% if ingredient.ingredient|length != 0 %}
+                    <pre>
+                        {{ dump(ingredient) }}
+                    </pre>
                         <div>
                             <h3>
                                 {{ ingredient.ingredient }}
                             </h3>
                             <span>
                                 {{ ingredient.quantity }}
-                                {# <pre>
-                                    {{ dump(ingredient.unity) }}
-                                </pre> #}
                             </span>
                         </div>
                     {% endif %}
