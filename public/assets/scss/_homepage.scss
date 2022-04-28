@@ -1,8 +1,8 @@
-.favoris{
+.homepage{
     font-family: 'PopL', sans-serif;
-    section{
+    .sectionRecipe{
         background: $white;
-        margin: 100px auto 100px auto;
+        margin: 100px auto 30px auto;
         max-width: 1366px;
         border-radius: 25px;
         h1{
@@ -20,7 +20,7 @@
                 margin: 50px 50px;
                 h2{
                     font-family: 'Parisienne', sans-serif;
-                    padding: 30px 0;
+                    padding: 100px 0;
                     font-size: 38px;
                     font-weight: 600;
                     color: $gray;
@@ -99,9 +99,9 @@
             }
             
         }
-        .spanNofav{
+        span{
             @include flex(center,center);
-            padding: 101px;
+            padding: 50px;
             font-size: 35px;
             position: relative;
             &::before{
@@ -117,16 +117,141 @@
             }
         }
     }
+
+
+
+
+    .contactUs{
+        @include flex(space-between, center);
+        margin-top: 125px;
+        .imgBg{
+            img{
+                width: 105%;
+            }
+        }
+        .rightContactUs{
+            width: 100%;
+            @include flex(center, center, column);
+            margin-right: 50px;
+            h2 , a{
+                margin: 65px 0;
+            }
+            h2{
+                font-family: 'Parisienne', sans-serif;
+                font-size: 80px;
+                color: $gray;
+                text-align: center;
+            }
+            a{
+                padding: 20px 50px;
+                color: $primaryColor;
+                border: 1px solid $primaryColor;
+                border-radius: 50px;
+                transition: 0.2s all;
+                font-size: 40px;
+                &:hover{
+                    color: $white;
+                    font-weight: bold;
+                    background-color: $primaryColor;
+                }
+            }
+        }
+
+    }
+    .logoSocial{
+        margin: 125px 0; 
+        @include flex(center, center, column);
+        .joinUs{
+            @include flex(center, center);
+            font-size: 80px;
+            color: $gray;
+            text-align: center;
+        }
+        .logo{
+            width: 90px;
+            margin: 0 30px;
+        }
+        .logoImg{
+            width: 100%;
+            margin: 35px 0;
+            padding: 85px 0;
+            @include flex(center, center);
+            border-top: 1px solid $secondaryColor;
+            border-bottom: 1px solid $secondaryColor;
+        }
+    }
 }
 
 @media screen and (max-width: 1370px) {
-    .favoris{
-        section{
+    .homepage{
+        .sectionRecipe{
             width: 100%;
             margin: 0;
             border-radius: 0px;
             h1{
                 padding: 100px 0 0;
+            }
+        }
+
+
+        .contactUs{
+            margin-top: 80px;
+            .imgBg{
+                img{
+                    width: 85%;
+                }
+            }
+            .rightContactUs{
+                h2 , a{
+                    margin: 45px 0;
+                }
+                h2{
+                    font-size: 55px;
+                }
+                a{
+                    padding: 15px 45px;
+                    font-size: 32px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .homepage{
+        background: $white;
+        .contactUs{
+            margin-top: 80px;
+            @include flex(center, center, column);
+            overflow: hidden;
+            .imgBg{
+                width: 100vw;
+                img{
+                    width: 100%;
+                }
+            }
+            .rightContactUs{
+                margin: 0;
+                h2 , a{
+                    margin: 30px 0;
+                }
+                h2{
+                    font-size: 55px;
+                }
+                a{
+                    padding: 15px 45px;
+                    font-size: 32px;
+                }
+            }
+        }
+        .logoSocial{
+            margin: 50px 0; 
+            overflow: hidden;
+            .joinUs{
+                font-size: 50px;
+            }
+            .logo{
+                width: 60px;
             }
         }
     }

@@ -104,6 +104,10 @@ body{
     display: block;
 }
 
+main{
+    overflow-y: hidden !important;
+}
+
 
 header{
     box-shadow: 5px 0 13px #00000029;

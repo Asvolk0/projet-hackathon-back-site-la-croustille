@@ -19,22 +19,7 @@ class FormMessageType extends AbstractType
             ->add('name')
             ->add('lastname')
             ->add('email')
-            ->add('message', TextareaType::class, [
-                'attr'=> array(
-                    'style'=> 'width: 400px; 
-                    max-width: 400px; 
-                    min-width: 400px; 
-                    height: 40px; 
-                    min-height: 40px; 
-                    max-height: 3000px; 
-                    font-size: 25px; 
-                    padding: 3px;
-                    border: none;
-                    border-bottom: 1px solid #707070;
-                    margin-top: 6px;
-                    ',
-                )
-            ])
+            ->add('message', TextareaType::class)
             ->add('submit', SubmitType::class, [
                 'label'=>'>',
                 'attr' => array(

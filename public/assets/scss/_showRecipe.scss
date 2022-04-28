@@ -164,13 +164,69 @@
 }
 
 @media screen and (max-width: 1370px) {
-    .recipes{
+    .showRecipe{
         section{
             width: 100%;
             margin: 0;
             border-radius: 0px;
-            h1{
-                padding: 100px 0 0;
+        }
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .showRecipe{
+        section{
+            & > div:nth-child(2){
+                .like{
+                    top: 160px;
+                    transform: translate(-50%, -50%);
+                    left: calc(50% - 60px);
+                }
+                .fav{
+                    top: 160px;
+                    transform: translate(-50%, -50%);
+                    left: calc(50% + 60px);
+                }
+            }
+            .recipePersoneTime{
+                margin: 90px 0 50px 20px;
+                font-size: 20px;
+                .preparationTime{
+                    margin-bottom: 15px;
+                    img{
+                        width: 15px;
+                        margin-right: 15px;
+                    }
+                }
+                .numberMore , .numberLess{
+                    font-size: 20px;
+                    padding: 0px 8px;
+                }
+            }
+            .buttonIngredientsSteps{
+                margin: 0 auto;
+                width: 400px;
+                height: 70px;
+                h2{
+                    font-size: 21px;
+                    padding: 12px 20px;
+                    border-radius: 50px;
+                }
+            }
+            #ingredients{
+                margin: 50px 0;
+                & > div{
+                    margin: 50px 120px;
+                    h3{
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+            #steps{
+                margin: 50px 0;
+                & > div{
+                    margin: 20px 30px;
+                }
             }
         }
     }

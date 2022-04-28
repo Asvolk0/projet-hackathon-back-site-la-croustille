@@ -48,19 +48,19 @@ class RecipeRepository extends ServiceEntityRepository
     // /**
     //  * @return Recipe[] Returns an array of Recipe objects
     //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('r')
-            ->andWhere('r.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('r.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
-    */
+
+    public function recipeFavHomePage()
+{
+    $qb = $this->createQueryBuilder('recipe');
+    $qb
+        ->select('recipe');
+        $query = $qb->getQuery();
+        
+        $fav = $query->getArrayResult();
+
+        return $fav;
+}
+    
 
     /*
     public function findOneBySomeField($value): ?Recipe

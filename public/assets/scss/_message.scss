@@ -26,6 +26,19 @@
                         font-size: 25px;
                         padding: 5px;
                     }
+                    textarea{
+                        width: 400px; 
+                        max-width: 400px; 
+                        min-width: 400px; 
+                        height: 40px; 
+                        min-height: 40px; 
+                        max-height: 3000px; 
+                        font-size: 25px; 
+                        padding: 3px;
+                        border: none;
+                        border-bottom: 1px solid $gray;
+                        margin-top: 6px;
+                    }
                 }
             }
             
@@ -60,3 +73,57 @@
     }
 }
 
+@media screen and (max-width: 960px){
+    .message{
+        section{
+            form{
+                .input{
+                    padding: 20px 60px 20px 60px;
+                    & > div{
+                        padding: 15px;
+                        label{
+                            align-self: flex-start;
+                            font-size: 15px;
+                            color: $gray;
+                        }
+                        input{
+                            width: 200px;
+                            height: 20px;
+                            font-size: 15px;
+                            padding: 5px;
+                        }
+                        textarea{
+                            width: 200px; 
+                            max-width: 200px; 
+                            min-width: 200px; 
+                            height: 30px; 
+                            min-height: 30px; 
+                            max-height: 3000px; 
+                            font-size: 15px; 
+                        }
+                    }
+                }
+                
+    
+                
+                
+                .divBtn{
+    
+                    span{
+                        width: 75%;
+                        font-size: 17px;
+                        padding: 5px;
+                    }
+    
+                    .btn{
+                        width: 100px;
+                        height: 100px;
+                        padding: 10px;
+                        font-size: 100px;
+                    }
+                }
+            }
+
+        }
+    }
+}
