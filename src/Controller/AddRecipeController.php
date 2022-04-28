@@ -42,6 +42,7 @@ class AddRecipeController extends AbstractController
 
             $recipes['title'] = $request->request->get('title');
             $recipes['nbPersonne'] = $request->request->get('nbPersonne');
+            $recipes['unity'] = $request->request->get('unity');
             $recipes['preparationTime'] = $request->request->get('preparationTime');
             $img = $request->files->get('img');
             $imgName = md5(uniqid()) . '.' .$img->guessExtension();
@@ -69,7 +70,7 @@ class AddRecipeController extends AbstractController
             $newIngredient->setIngredient($IngredientForm['IngredientOne'])
             ->setQuantity($IngredientForm['quantity'])
             ->setUnity($unityRepository->findOneBy([
-                'id'=>$request->request->get('unity')
+                'id'=>$recipes['unity']
             ]));
             
             $recipe->addIngredient($newIngredient);
