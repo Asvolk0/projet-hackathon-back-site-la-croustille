@@ -21,18 +21,6 @@ for (let i = 0; i < dropDownDeploy.length; i++) {
             dropDownDeploy[1].classList.remove('dropDownDeployDisplayBlock');
             spanDropdown[1].classList.remove('spanDropdownArrowDown');
         });
-        
-        // if (dropDownDeploy[i].classList.contains('dropDownDeployDisplayBlock') == true) {
-        //     setInterval(() => {
-        //         window.addEventListener('click', () =>{
-        //             dropDownDeploy[i].classList.remove('dropDownDeployDisplayBlock');
-        //             dropDownDeploy[i].classList.add('dropDownDeployDisplayNone');
-        //             spanDropdown[i].classList.remove('spanDropdownArrowDown');
-        //         });
-        //     }, 100);
-        // }
-
-
     });
 
     window.addEventListener('scroll', () => {

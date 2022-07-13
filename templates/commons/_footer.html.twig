@@ -19,8 +19,15 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            Vos avis
+                        <a href="{% if (app.user) %}
+                        
+                                    {{ path('favPage', {'id':app.user.id}) }}
+                                 {% else %}
+                                    {{ path('app_login') }}
+                                 {% endif %}
+                                 
+                                 ">
+                            Favoris
                         </a>
                     </li>
                     <li>
@@ -68,25 +75,25 @@
         <span>
             -
         </span>
-        <a href="#">
+        <a href="{{ path('MentionLegales') }}">
             Mentions légales
         </a>
         <span>
             -
         </span>
-        <a href="#">
+        <a href="{{ path('PolitiqueDeConfidentialite') }}">
             Politique de confidentialité
         </a>
         <span>
             -
         </span>
-        <a href="#">
+        <a href="{{ path('CGU') }}">
             CGU
         </a>
         <span>
             -
         </span>
-        <a href="#">
+        <a href="{{ path('charte') }}">
             Charte
         </a>
     </section>

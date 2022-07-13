@@ -1,0 +1,44 @@
+.mentionsMain{
+  font-family: 'PopL', sans-serif;
+  .mentions{
+    @include flex(center, center, column);
+    padding: 30px 150px;
+    color: $gray;
+    h1{
+      text-align: center;
+      font-size: 50px;
+      font-family: 'Parisienne', sans-serif;
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        background: $secondaryColor;
+        width: 70%;
+        height: 4px;
+        top: 100%;
+        left: 0;
+      }
+    }
+    .content{
+      @include flex(center, flex-start, column);
+      padding: 50px 0;
+      h2{
+        font-size: 40px;
+        font-weight: 600;
+        font-family: 'Parisienne', sans-serif;
+        padding-bottom: 30px;
+      }
+      h3{
+        margin-left: 10px;
+        font-size: 28px;
+        padding-bottom: 20px;
+        color: $black;
+      }
+      p{
+        margin-left: 10px;
+        font-size: 20px;
+        padding-bottom: 35px;
+      }
+    }
+  }
+}

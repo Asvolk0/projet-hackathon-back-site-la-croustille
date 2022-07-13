@@ -43,15 +43,6 @@
             </li>
 
 
-
-            <li>
-                <a class="activeNotice" href="{{ path('app_login') }}" tabindex="1">
-                    Vos avis
-                </a>
-            </li>
-
-
-
             {% if app.user %}
                 <li>
                     <div class="dropdownRecipe" tabindex="1">
@@ -85,7 +76,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="activeLogin" href="{{ path('app_login') }}" tabindex="1">
+                    <a class="login activeLogin" href="{{ path('app_login') }}" tabindex="1">
                         Se connecter
                     </a>
                 </li>

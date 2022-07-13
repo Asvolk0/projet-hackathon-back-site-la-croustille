@@ -11,7 +11,7 @@
             {% for favLike in recipeLike|slice(0, 1) %}
                 <article>
                     <h2>
-                        La plus aimée
+                        Notre recommandation
                     </h2>
                     {% if favLike|length != 0 %}
                     <div>
@@ -72,7 +72,7 @@
             {% for favFav in recipeFav|slice(0, 1) %}
                 <article>
                     <h2>
-                        La plus populaire
+                        La plus récente
                     </h2>
                     {% if favFav|length != 0 %}
                     <div>

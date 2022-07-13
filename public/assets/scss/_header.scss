@@ -226,6 +226,7 @@ header{
                 
             & > .createAccount{
                 padding: 0 10px;
+                margin-left: 15px;
                 a{
                     color: $primaryColor;
                     border-radius: 35px;
@@ -239,8 +240,8 @@ header{
                 }
             }
 
-            & > li:nth-child(5){
-                a{
+            & > li{
+                .login{
                     color: $primaryColor;
                     font-weight: 600;
                     &:hover{

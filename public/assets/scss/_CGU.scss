@@ -1,0 +1,35 @@
+.CGUMain{
+  font-family: 'PopL', sans-serif;
+  section{
+    @include flex(center, center, column);
+    padding: 30px 150px;
+    color: $gray;
+    h1{
+      text-align: center;
+      font-size: 50px;
+      font-family: 'Parisienne', sans-serif;
+      position: relative;
+      margin-bottom: 50px;
+      &::after{
+        content: '';
+        position: absolute;
+        background: $secondaryColor;
+        width: 70%;
+        height: 4px;
+        top: 100%;
+        left: 0;
+      }
+    }
+    h2{
+      font-size: 40px;
+      font-weight: 600;
+      font-family: 'Parisienne', sans-serif;
+      padding-bottom: 30px;
+    }
+    p{
+      margin-left: 10px;
+      font-size: 20px;
+      padding-bottom: 35px;
+    }
+  }
+}
