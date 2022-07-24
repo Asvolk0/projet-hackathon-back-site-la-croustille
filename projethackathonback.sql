@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 28 avr. 2022 à 22:51
+-- Généré le : dim. 24 juil. 2022 à 10:43
 -- Version du serveur : 5.7.36
 -- Version de PHP : 8.0.13
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `ingredients` (
   PRIMARY KEY (`id`),
   KEY `IDX_4B60114F59D8A214` (`recipe_id`),
   KEY `IDX_4B60114FF6859C8C` (`unity_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `ingredients`
@@ -132,14 +132,15 @@ CREATE TABLE IF NOT EXISTS `message` (
   `message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_B6BD307FA76ED395` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `message`
 --
 
 INSERT INTO `message` (`id`, `user_id`, `name`, `lastname`, `email`, `message`) VALUES
-(16, NULL, 'Une personne', 'Un Nom', 'machin@gmail.com', 'Bonjour, \r\nje cherche à créer un compte sur votre site, mais je n\'y arrive pas');
+(16, NULL, 'Une personne', 'Un Nom', 'machin@gmail.com', 'Bonjour, \r\nje cherche à créer un compte sur votre site, mais je n\'y arrive pas'),
+(17, 8, 'carl', 'pennequin', 'carl@gmail.com', 'tres bien');
 
 -- --------------------------------------------------------
 
@@ -179,7 +180,7 @@ CREATE TABLE IF NOT EXISTS `recipe` (
   `nb_personne` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_DA88B137C54C8C93` (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `recipe`
@@ -229,7 +230,9 @@ CREATE TABLE IF NOT EXISTS `recipe_user` (
 
 INSERT INTO `recipe_user` (`recipe_id`, `user_id`) VALUES
 (41, 2),
-(41, 3);
+(41, 3),
+(43, 8),
+(46, 8);
 
 -- --------------------------------------------------------
 
@@ -244,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `step` (
   `recipe_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_43B9FE3C59D8A214` (`recipe_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=133 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=137 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `step`
@@ -303,7 +306,7 @@ CREATE TABLE IF NOT EXISTS `type` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `type`
@@ -355,7 +358,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `is_verified` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `UNIQ_8D93D649E7927C74` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Déchargement des données de la table `user`
@@ -365,7 +368,8 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`, `name`, `lastname`, `is_
 (2, 'carl@gmail.com', '[\"ROLE_SUPERADMIN\"]', '$2y$13$riEn43IuO/TV1fvGSATPD.N9pymAmDvoa28rbNWK3UcbMpU6RoSfq', 'Carl', 'Pennequin', 0),
 (3, 'adam@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$lTFZiGh4VR.nqsDZry5ZmOhA2R2PZ.sUyNJNdiON6nw3uVJq6FaEi', 'Adam', 'Comte', 0),
 (4, 'anton@gmail.com', '[\"ROLE_ADMIN\"]', '$2y$13$0jfhcg.ipUe4FXzNQxIJ2OAqCjJKGwQTmaGe7rcftmDyzrS3ZQ3gi', 'Anton', 'Lukusa', 0),
-(7, 'melwyne@gmail.com', '[\"ROLE_USER\"]', '$2y$13$qdP8Slk9IiE5QM2ZFIrYCehz8.B5U2L61LO/5iflK1gfrATzNRUVi', 'Melwyne', 'Mouroux', 0);
+(7, 'melwyne@gmail.com', '[\"ROLE_USER\"]', '$2y$13$qdP8Slk9IiE5QM2ZFIrYCehz8.B5U2L61LO/5iflK1gfrATzNRUVi', 'Melwyne', 'Mouroux', 0),
+(8, 'test@gmail.com', '[\"ROLE_USER\"]', '$2y$13$W.AjwDRP.NOKL0REB0dtuejyfrUeAk.8RCeX6Zg7R2Qyw8wOux/WW', 'test', 'test', 0);
 
 -- --------------------------------------------------------
 
