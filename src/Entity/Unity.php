@@ -18,7 +18,7 @@ class Unity
     #[ORM\Column(type: 'string', length: 255)]
     private $mesure;
 
-    #[ORM\OneToMany(mappedBy: 'unity', targetEntity: ingredients::class)]
+    #[ORM\OneToMany(mappedBy: 'unity', targetEntity: Ingredients::class)]
     private $ingredients;
 
     public function __construct()

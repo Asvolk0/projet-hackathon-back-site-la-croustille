@@ -25,7 +25,7 @@ class Message
     #[ORM\Column(type: 'text')]
     private $message;
 
-    #[ORM\ManyToOne(targetEntity: user::class, inversedBy: 'messages')]
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'messages')]
     private $user;
 
     public function getId(): ?int

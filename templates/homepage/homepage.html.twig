@@ -11,7 +11,7 @@
             {% for favLike in recipeLike|slice(0, 1) %}
                 <article>
                     <h2>
-                        Notre recommandation
+                        Notre recommandation                        
                     </h2>
                     {% if favLike|length != 0 %}
                     <div>
@@ -26,12 +26,12 @@
                                 Created by potrace 1.15, written by Peter Selinger 2001-2017
                                 </metadata>
                                 <g transform="translate(0.000000,1189.000000) scale(0.100000,-0.100000)"
-                                fill="#000
-                                {# {% if app.user.id == recipe.users.liked %}
-                                    #F42326
+                                fill="
+                                {% if app.user and user %}
+                                    #ff0000
                                 {% else %}
                                     #000
-                                {% endif %} #}
+                                {% endif %}
                                 " stroke="none">
                                 <a href="{% if app.user %}
                                             {{ path('love', {'id':favLike.id}) }}

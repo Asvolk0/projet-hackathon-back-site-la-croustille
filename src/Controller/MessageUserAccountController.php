@@ -32,7 +32,7 @@ class MessageUserAccountController extends AbstractController
         ]);
     }
 
-    #[Route('/suppr/{id}', name:'app_message_user_account_suppr', methods:['GET', 'POST'])]
+    #[Route('/supprMessage/{id}', name:'app_message_user_account_suppr', methods:['GET', 'POST'])]
     public function app_message_user_account_suppr(MessageRepository $messageRepository, $id){
         $message = $messageRepository->findOneBy([
             'id'=>$id

@@ -24,11 +24,11 @@ class Recipe
     #[ORM\Column(type: 'boolean')]
     private $active;
 
-    #[ORM\ManyToOne(targetEntity: type::class, inversedBy: 'recipes')]
+    #[ORM\ManyToOne(targetEntity: Type::class, inversedBy: 'recipes')]
     #[ORM\JoinColumn(nullable: false, onDelete: "CASCADE")]
     private $type;
 
-    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: step::class)]
+    #[ORM\OneToMany(mappedBy: 'recipe', targetEntity: Step::class)]
     private $steps;
 
     #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'liked')]

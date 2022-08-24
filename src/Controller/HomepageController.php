@@ -3,14 +3,17 @@
 namespace App\Controller;
 
 use App\Repository\RecipeRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomepageController extends AbstractController
 {
     #[Route('/', name: 'homepage')]
-    public function homepage(RecipeRepository $recipeRepository)
+    public function homepage(RecipeRepository $recipeRepository, UserRepository $userRepository)
     {
+        $user = $userRepository->findAll();
+
         $recipeLike = $recipeRepository->findBy([
 
         ],
@@ -27,7 +30,8 @@ class HomepageController extends AbstractController
 
         return $this->render('homepage/homepage.html.twig', [
             'recipeFav'=>$recipeFav,
-            'recipeLike'=>$recipeLike
+            'recipeLike'=>$recipeLike,
+            'user'=>$user
         ]);
     }
 }
