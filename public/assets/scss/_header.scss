@@ -124,12 +124,12 @@ header{
             width: 22px;
             cursor: pointer;
             span{
-                width: 12px;
-                height: 1px;
+                width: 17px;
+                height: 1.5px;
                 background: $gray;
             }
             span:nth-child(2){
-                width: 22px;
+                width: 27px;
                 margin: 7.3px 0;
             }
         }
@@ -312,7 +312,7 @@ header{
 
 
 
-@media screen and (max-width: 960px){
+@media screen and (max-width: 1000px){
 
 
     .filter{
@@ -352,7 +352,7 @@ header{
 
     header{
         nav{
-            padding: 8px 50px;
+            padding: 10px 50px;
             font-size: 15px;
             position: relative;
 
@@ -397,7 +397,7 @@ header{
             .logoLink{
                 margin: 0 auto;
                 .logo{
-                    width: 100px;
+                    width: 150px;
                     
                 }
             }
